@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Nuclei.Diagnostics</id>
-    <version>${Version}</version>
+    <version>$VersionSemanticNuGet$</version>
     <authors>P. van der Velde</authors>
     <owners>P. van der Velde</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
@@ -13,17 +13,17 @@
       deployed applications.
     </description>
     <releaseNotes>
-      ${ReleaseNotes}
+      $ReleaseNotes$
     </releaseNotes>
     <dependencies>
-      ${Dependencies}
-      <dependency id="Nuclei.Configuration" version="${Version}" />
+      $Dependencies$
+      <dependency id="Nuclei.Configuration" version="$VersionSemantic$" />
     </dependencies>
   </metadata>
   <files>
-    <file src="${DirBin}\Nuclei.Diagnostics.dll" target="lib\net45" />
-    <file src="${DirBin}\Nuclei.Diagnostics.pdb" target="lib\net45" />
-    <file src="${DirBin}\Nuclei.Diagnostics.xml" target="lib\net45" />
-    <file src="${DirSrc}\Nuclei.Diagnostics\**\*.cs" target="src\Nuclei.Diagnostics" />
+    <file src="$DirBin$\Nuclei.Diagnostics.dll" target="lib\net45" />
+    <file src="$DirBin$\Nuclei.Diagnostics.pdb" target="lib\net45" />
+    <file src="$DirBin$\Nuclei.Diagnostics.xml" target="lib\net45" />
+    <file src="$DirSrc$\Nuclei.Diagnostics\**\*.cs" target="src\Nuclei.Diagnostics" />
   </files>
 </package>
