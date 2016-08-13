@@ -17,13 +17,12 @@
     </releaseNotes>
     <dependencies>
       $Dependencies$
-      <dependency id="Nuclei.Configuration" version="$VersionSemantic$" />
     </dependencies>
   </metadata>
   <files>
-    <file src="$DirBin$\Nuclei.Diagnostics.dll" target="lib\net40" />
-    <file src="$DirBin$\Nuclei.Diagnostics.pdb" target="lib\net40" />
-    <file src="$DirBin$\Nuclei.Diagnostics.xml" target="lib\net40" />
+    <file src="$DirBin$\Nuclei.Diagnostics.dll" target="lib\net452" />
+    <file src="$DirBin$\Nuclei.Diagnostics.pdb" target="lib\net452" />
+    <file src="$DirBin$\Nuclei.Diagnostics.xml" target="lib\net452" />
     <file src="$DirSrc$\Nuclei.Diagnostics\**\*.cs" target="src\Nuclei.Diagnostics" />
   </files>
 </package>
