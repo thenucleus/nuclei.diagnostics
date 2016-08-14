@@ -722,6 +722,13 @@
         By default nBuildkit and nUnit are ignored.
     -->
     <ItemGroup>
+        <!--
+            The following are not actually design time dependencies. They are secundairy dependencies which will be pulled in
+            when the direct dependencies are grabbed.
+        -->
+        <DesignTimeDependencies Include="Consul" />
+
+        <!-- The following are the actual design time dependencies -->
         <DesignTimeDependencies Include="nBuildKit" />
         <DesignTimeDependencies Include="nUnit" />
         <DesignTimeDependencies Include="StyleCop.Analyzers" />
