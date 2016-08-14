@@ -1,6 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
@@ -19,7 +20,9 @@ namespace Nuclei.Diagnostics
         /// <summary>
         /// The <see cref="ConfigurationKeyBase"/> that is used to retrieve the TCP port (int).
         /// </summary>
-        [SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes",
+        [SuppressMessage(
+            "Microsoft.Security",
+            "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes",
             Justification = "ConfigurationKey is immutable")]
         public static readonly ConfigurationKey<LevelToLog> DefaultLogLevel
             = new ConfigurationKey<LevelToLog>("DefaultLogLevel");

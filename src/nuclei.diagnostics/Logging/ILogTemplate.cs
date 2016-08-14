@@ -10,7 +10,7 @@ using System;
 namespace Nuclei.Diagnostics.Logging
 {
     /// <summary>
-    /// Defines a template for changing <see cref="ILogMessage"/> objects into the 
+    /// Defines a template for changing <see cref="ILogMessage"/> objects into the
     /// appropriate string representation.
     /// </summary>
     public interface ILogTemplate : IEquatable<ILogTemplate>
