@@ -9,7 +9,7 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using Nuclei.Diagnostics.Logging;
-using Nuclei.Diagnostics.Profiling;
+using Nuclei.Diagnostics.Metrics;
 
 namespace Nuclei.Diagnostics
 {
@@ -19,24 +19,24 @@ namespace Nuclei.Diagnostics
     public sealed class SystemDiagnostics
     {
         /// <summary>
-        /// The profiler that is used to time the different actions in the application.
-        /// </summary>
-        private readonly Profiler _profiler;
-
-        /// <summary>
         /// The action that logs the given string to the underlying loggers.
         /// </summary>
         private readonly Action<LevelToLog, string> _logger;
 
         /// <summary>
+        /// The object that provides metrics collection methods.
+        /// </summary>
+        private readonly IMetricsCollector _metrics;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="SystemDiagnostics"/> class.
         /// </summary>
         /// <param name="logger">The action that logs the given string to the underlying loggers.</param>
-        /// <param name="profiler">The object that provides interval measuring methods. May be <see langword="null" />.</param>
+        /// <param name="metrics">The object that provides metrics collection methods. May be <see langword="null" />.</param>
         /// <exception cref="ArgumentNullException">
         ///     Thrown if <paramref name="logger"/> is <see langword="null" />.
         /// </exception>
-        public SystemDiagnostics(Action<LevelToLog, string> logger, Profiler profiler)
+        public SystemDiagnostics(Action<LevelToLog, string> logger, IMetricsCollector metrics)
         {
             if (logger == null)
             {
@@ -44,7 +44,7 @@ namespace Nuclei.Diagnostics
             }
 
             _logger = logger;
-            _profiler = profiler;
+            _metrics = metrics;
         }
 
         /// <summary>
@@ -78,12 +78,12 @@ namespace Nuclei.Diagnostics
         /// Gets the profiler that can be used to gather timing intervals for any specific action
         /// that is executed in the framework.
         /// </summary>
-        public Profiler Profiler
+        public IMetricsCollector Metrics
         {
             [DebuggerStepThrough]
             get
             {
-                return _profiler;
+                return _metrics;
             }
         }
     }
