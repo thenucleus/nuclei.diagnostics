@@ -93,7 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logging\DebugLogTemplateTest.cs" />
-    <Compile Include="Logging\LogMessageTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <!-- Indicate that we depend on the SolutionLevel build projects -->
