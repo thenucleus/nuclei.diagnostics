@@ -12,25 +12,25 @@ using Nuclei.Diagnostics.Logging;
 namespace Nuclei.Diagnostics
 {
     /// <summary>
-    /// Defines the <see cref="ConfigurationKey"/> objects for the diagnostics layers.
+    /// Defines the <see cref="ConfigurationKeyBase"/> objects for the diagnostics layers.
     /// </summary>
     public static class DiagnosticsConfigurationKeys
     {
         /// <summary>
-        /// The <see cref="ConfigurationKey"/> that is used to retrieve the TCP port (int).
+        /// The <see cref="ConfigurationKeyBase"/> that is used to retrieve the TCP port (int).
         /// </summary>
         [SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes",
             Justification = "ConfigurationKey is immutable")]
-        public static readonly ConfigurationKey DefaultLogLevel
-            = new ConfigurationKey("DefaultLogLevel", typeof(LevelToLog));
+        public static readonly ConfigurationKey<LevelToLog> DefaultLogLevel
+            = new ConfigurationKey<LevelToLog>("DefaultLogLevel");
 
         /// <summary>
         /// Returns a collection containing all the configuration keys for the diagnostics section.
         /// </summary>
         /// <returns>A collection containing all the configuration keys for the diagnostics section.</returns>
-        public static IEnumerable<ConfigurationKey> ToCollection()
+        public static IEnumerable<ConfigurationKeyBase> ToCollection()
         {
-            return new List<ConfigurationKey>
+            return new List<ConfigurationKeyBase>
                 {
                     DefaultLogLevel,
                 };

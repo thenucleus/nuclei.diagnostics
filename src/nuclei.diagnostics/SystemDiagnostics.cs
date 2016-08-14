@@ -1,6 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
@@ -20,12 +21,12 @@ namespace Nuclei.Diagnostics
         /// <summary>
         /// The profiler that is used to time the different actions in the application.
         /// </summary>
-        private readonly Profiler m_Profiler;
+        private readonly Profiler _profiler;
 
         /// <summary>
         /// The action that logs the given string to the underlying loggers.
         /// </summary>
-        private readonly Action<LevelToLog, string> m_Logger;
+        private readonly Action<LevelToLog, string> _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemDiagnostics"/> class.
@@ -37,12 +38,13 @@ namespace Nuclei.Diagnostics
         /// </exception>
         public SystemDiagnostics(Action<LevelToLog, string> logger, Profiler profiler)
         {
+            if (logger == null)
             {
-                Lokad.Enforce.Argument(() => logger);
+                throw new ArgumentNullException("logger");
             }
 
-            m_Logger = logger;
-            m_Profiler = profiler;
+            _logger = logger;
+            _profiler = profiler;
         }
 
         /// <summary>
@@ -52,7 +54,7 @@ namespace Nuclei.Diagnostics
         /// <param name="message">The message.</param>
         public void Log(LevelToLog severity, string message)
         {
-            m_Logger(severity, message);
+            _logger(severity, message);
         }
 
         /// <summary>
@@ -63,7 +65,7 @@ namespace Nuclei.Diagnostics
         /// <param name="message">The message.</param>
         public void Log(LevelToLog severity, string prefix, string message)
         {
-            m_Logger(
+            _logger(
                 severity,
                 string.Format(
                     CultureInfo.InvariantCulture,
@@ -81,7 +83,7 @@ namespace Nuclei.Diagnostics
             [DebuggerStepThrough]
             get
             {
-                return m_Profiler;
+                return _profiler;
             }
         }
     }

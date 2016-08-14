@@ -1,6 +1,7 @@
 //-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
@@ -16,8 +17,10 @@ namespace Nuclei.Diagnostics.Logging
     // There is little point in adding a contract verifier for IEquatable<DebugLogTemplate> here because there
     // is really only one implementation of that type and they're pretty much all the same
     [TestFixture]
-    [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented",
-            Justification = "Unit tests do not need documentation.")]
+    [SuppressMessage(
+        "Microsoft.StyleCop.CSharp.DocumentationRules",
+        "SA1600:ElementsMustBeDocumented",
+        Justification = "Unit tests do not need documentation.")]
     public sealed class DebugLogTemplateTest
     {
         private static DateTimeOffset GetDefaultDateTime()
@@ -30,20 +33,29 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
             var template = new DebugLogTemplate(configuration.Object, GetDefaultDateTime);
-            var msg = new LogMessage(LevelToLog.Info, "blabla");
-            var text = template.Translate(msg);
+            var msg = new Mock<ILogMessage>();
+            {
+                msg.Setup(m => m.Level)
+                    .Returns(LevelToLog.Info);
+                msg.Setup(m => m.Text())
+                    .Returns("blabla");
+            }
+
+            var text = template.Translate(msg.Object);
 
             var expectedText = string.Format(
-                CultureInfo.CurrentCulture, 
+                CultureInfo.CurrentCulture,
                 DebugLogTemplate.DebugLogFormat,
-                GetDefaultDateTime().ToString("yyyy/MM/ddTHH:mm:ss.fffff zzz", CultureInfo.CurrentCulture), 
-                msg.Level, 
-                msg.Text());
+                GetDefaultDateTime().ToString("yyyy/MM/ddTHH:mm:ss.fffff zzz", CultureInfo.CurrentCulture),
+                msg.Object.Level,
+                msg.Object.Text());
             Assert.AreEqual(expectedText, text);
         }
 
@@ -52,7 +64,9 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
@@ -65,7 +79,9 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
@@ -78,7 +94,9 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
@@ -91,7 +109,9 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
@@ -104,7 +124,9 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
@@ -117,7 +139,9 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
@@ -130,7 +154,9 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
@@ -143,7 +169,9 @@ namespace Nuclei.Diagnostics.Logging
         {
             var configuration = new Mock<IConfiguration>();
             {
-                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey>()))
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKeyBase>()))
+                    .Returns(false);
+                configuration.Setup(c => c.HasValueFor(It.IsAny<ConfigurationKey<LevelToLog>>()))
                     .Returns(false);
             }
 
