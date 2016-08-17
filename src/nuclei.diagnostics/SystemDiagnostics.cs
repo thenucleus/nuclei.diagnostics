@@ -1,6 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
@@ -8,7 +9,7 @@ using System;
 using System.Diagnostics;
 using System.Globalization;
 using Nuclei.Diagnostics.Logging;
-using Nuclei.Diagnostics.Profiling;
+using Nuclei.Diagnostics.Metrics;
 
 namespace Nuclei.Diagnostics
 {
@@ -18,31 +19,32 @@ namespace Nuclei.Diagnostics
     public sealed class SystemDiagnostics
     {
         /// <summary>
-        /// The profiler that is used to time the different actions in the application.
-        /// </summary>
-        private readonly Profiler m_Profiler;
-
-        /// <summary>
         /// The action that logs the given string to the underlying loggers.
         /// </summary>
-        private readonly Action<LevelToLog, string> m_Logger;
+        private readonly Action<LevelToLog, string> _logger;
+
+        /// <summary>
+        /// The object that provides metrics collection methods.
+        /// </summary>
+        private readonly IMetricsCollector _metrics;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemDiagnostics"/> class.
         /// </summary>
         /// <param name="logger">The action that logs the given string to the underlying loggers.</param>
-        /// <param name="profiler">The object that provides interval measuring methods. May be <see langword="null" />.</param>
+        /// <param name="metrics">The object that provides metrics collection methods. May be <see langword="null" />.</param>
         /// <exception cref="ArgumentNullException">
         ///     Thrown if <paramref name="logger"/> is <see langword="null" />.
         /// </exception>
-        public SystemDiagnostics(Action<LevelToLog, string> logger, Profiler profiler)
+        public SystemDiagnostics(Action<LevelToLog, string> logger, IMetricsCollector metrics)
         {
+            if (logger == null)
             {
-                Lokad.Enforce.Argument(() => logger);
+                throw new ArgumentNullException("logger");
             }
 
-            m_Logger = logger;
-            m_Profiler = profiler;
+            _logger = logger;
+            _metrics = metrics;
         }
 
         /// <summary>
@@ -52,7 +54,7 @@ namespace Nuclei.Diagnostics
         /// <param name="message">The message.</param>
         public void Log(LevelToLog severity, string message)
         {
-            m_Logger(severity, message);
+            _logger(severity, message);
         }
 
         /// <summary>
@@ -63,7 +65,7 @@ namespace Nuclei.Diagnostics
         /// <param name="message">The message.</param>
         public void Log(LevelToLog severity, string prefix, string message)
         {
-            m_Logger(
+            _logger(
                 severity,
                 string.Format(
                     CultureInfo.InvariantCulture,
@@ -76,12 +78,12 @@ namespace Nuclei.Diagnostics
         /// Gets the profiler that can be used to gather timing intervals for any specific action
         /// that is executed in the framework.
         /// </summary>
-        public Profiler Profiler
+        public IMetricsCollector Metrics
         {
             [DebuggerStepThrough]
             get
             {
-                return m_Profiler;
+                return _metrics;
             }
         }
     }

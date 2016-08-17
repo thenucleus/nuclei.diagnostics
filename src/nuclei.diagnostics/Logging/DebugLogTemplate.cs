@@ -1,6 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
@@ -25,12 +26,12 @@ namespace Nuclei.Diagnostics.Logging
         /// <summary>
         /// The configuration for the current application.
         /// </summary>
-        private readonly IConfiguration m_Configuration;
+        private readonly IConfiguration _configuration;
 
         /// <summary>
         /// A function that returns the current time.
         /// </summary>
-        private readonly Func<DateTimeOffset> m_GetCurrentTime;
+        private readonly Func<DateTimeOffset> _getCurrentTime;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DebugLogTemplate"/> class.
@@ -45,13 +46,18 @@ namespace Nuclei.Diagnostics.Logging
         /// </exception>
         public DebugLogTemplate(IConfiguration configuration, Func<DateTimeOffset> getCurrentTime)
         {
+            if (configuration == null)
             {
-                Lokad.Enforce.Argument(() => configuration);
-                Lokad.Enforce.Argument(() => getCurrentTime);
+                throw new ArgumentNullException("configuration");
             }
 
-            m_Configuration = configuration;
-            m_GetCurrentTime = getCurrentTime;
+            if (getCurrentTime == null)
+            {
+                throw new ArgumentNullException("getCurrentTime");
+            }
+
+            _configuration = configuration;
+            _getCurrentTime = getCurrentTime;
         }
 
         /// <summary>
@@ -76,8 +82,8 @@ namespace Nuclei.Diagnostics.Logging
         /// </returns>
         public LevelToLog DefaultLogLevel()
         {
-            return m_Configuration.HasValueFor(DiagnosticsConfigurationKeys.DefaultLogLevel)
-                ? m_Configuration.Value<LevelToLog>(DiagnosticsConfigurationKeys.DefaultLogLevel)
+            return _configuration.HasValueFor(DiagnosticsConfigurationKeys.DefaultLogLevel)
+                ? _configuration.Value<LevelToLog>(DiagnosticsConfigurationKeys.DefaultLogLevel)
                 : LevelToLog.Error;
         }
 
@@ -90,14 +96,15 @@ namespace Nuclei.Diagnostics.Logging
         /// </returns>
         public string Translate(ILogMessage message)
         {
+            if (message == null)
             {
-                Lokad.Enforce.Argument(() => message);
+                throw new ArgumentNullException("message");
             }
 
             return string.Format(
                 CultureInfo.CurrentCulture,
                 DebugLogFormat,
-                m_GetCurrentTime().ToString("yyyy/MM/ddTHH:mm:ss.fffff zzz", CultureInfo.CurrentCulture),
+                _getCurrentTime().ToString("yyyy/MM/ddTHH:mm:ss.fffff zzz", CultureInfo.CurrentCulture),
                 message.Level,
                 message.Text());
         }
@@ -109,7 +116,9 @@ namespace Nuclei.Diagnostics.Logging
         /// <returns>
         /// <see langword="true" /> if the current object is equal to the <paramref name="other"/> parameter; otherwise, <see langword="false" />.
         /// </returns>
-        [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter",
+        [SuppressMessage(
+            "Microsoft.StyleCop.CSharp.DocumentationRules",
+            "SA1628:DocumentationTextMustBeginWithACapitalLetter",
             Justification = "Documentation can start with a language keyword")]
         public bool Equals(DebugLogTemplate other)
         {
@@ -124,7 +133,9 @@ namespace Nuclei.Diagnostics.Logging
         ///     <see langword="true"/> if the current object is equal to the <paramref name="other"/> parameter; otherwise, <see langword="false" />.
         /// </returns>
         /// <param name="other">An object to compare with this object.</param>
-        [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter",
+        [SuppressMessage(
+            "Microsoft.StyleCop.CSharp.DocumentationRules",
+            "SA1628:DocumentationTextMustBeginWithACapitalLetter",
             Justification = "Documentation can start with a language keyword")]
         public bool Equals(ILogTemplate other)
         {
@@ -145,7 +156,9 @@ namespace Nuclei.Diagnostics.Logging
         ///     otherwise, <see langword="false" />.
         /// </returns>
         /// <param name="obj">The <see cref="T:System.Object"/> to compare with the current <see cref="T:System.Object"/>.</param>
-        [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1628:DocumentationTextMustBeginWithACapitalLetter",
+        [SuppressMessage(
+            "Microsoft.StyleCop.CSharp.DocumentationRules",
+            "SA1628:DocumentationTextMustBeginWithACapitalLetter",
             Justification = "Documentation can start with a language keyword")]
         public override bool Equals(object obj)
         {

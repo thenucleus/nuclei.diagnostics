@@ -1,6 +1,7 @@
 ﻿//-----------------------------------------------------------------------
-// <copyright company="Nuclei">
-//     Copyright 2013 Nuclei. Licensed under the Apache License, Version 2.0.
+// <copyright company="TheNucleus">
+// Copyright (c) TheNucleus. All rights reserved.
+// Licensed under the Apache License, Version 2.0 license. See LICENCE.md file in the project root for full license information.
 // </copyright>
 //-----------------------------------------------------------------------
 
@@ -9,7 +10,7 @@ using System;
 namespace Nuclei.Diagnostics.Logging
 {
     /// <summary>
-    /// Defines a template for changing <see cref="ILogMessage"/> objects into the 
+    /// Defines a template for changing <see cref="ILogMessage"/> objects into the
     /// appropriate string representation.
     /// </summary>
     public interface ILogTemplate : IEquatable<ILogTemplate>
@@ -24,7 +25,7 @@ namespace Nuclei.Diagnostics.Logging
         }
 
         /// <summary>
-        /// Returns the default log level which is used if no changes in 
+        /// Returns the default log level which is used if no changes in
         /// log level are requested after the system starts.
         /// </summary>
         /// <returns>
