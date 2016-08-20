@@ -18,7 +18,7 @@ namespace Nuclei.Diagnostics
     public static class DiagnosticsConfigurationKeys
     {
         /// <summary>
-        /// The <see cref="ConfigurationKeyBase"/> that is used to retrieve the TCP port (int).
+        /// The <see cref="ConfigurationKeyBase"/> that is used to retrieve the default log level.
         /// </summary>
         [SuppressMessage(
             "Microsoft.Security",
