@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemDiagnosticsSample.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -69,9 +70,9 @@
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\nuclei.configuration\Nuclei.Configuration.csproj">
-      <Project>{62e77b2f-34ee-4258-b1c7-9f30eb80ae12}</Project>
-      <Name>Nuclei.Configuration</Name>
+    <ProjectReference Include="..\..\src\Nuclei.Diagnostics\Nuclei.Diagnostics.csproj">
+      <Project>{751a1133-0a06-4fd1-a4c1-0daec2d40d31}</Project>
+      <Name>Nuclei.Diagnostics</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
