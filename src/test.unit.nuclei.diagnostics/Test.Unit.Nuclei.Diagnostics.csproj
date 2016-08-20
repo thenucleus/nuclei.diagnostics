@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="Logging\DebugLogTemplateTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemDiagnosticsTest.cs" />
   </ItemGroup>
   <!-- Indicate that we depend on the SolutionLevel build projects -->
   <ItemGroup>
