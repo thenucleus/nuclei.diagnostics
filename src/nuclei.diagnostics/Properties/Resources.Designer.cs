@@ -61,38 +61,20 @@ namespace Nuclei.Diagnostics.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An interval can only be started once..
+        ///   Looks up a localized string similar to It is not possible to log a message if the LogLevel is set to None..
         /// </summary>
-        internal static string Exceptions_Messages_CanOnlyMeasureIntervalOnce {
+        internal static string Exceptions_Messages_CannotLogMessageWithLogLevelSetToNone {
             get {
-                return ResourceManager.GetString("Exceptions_Messages_CanOnlyMeasureIntervalOnce", resourceCulture);
+                return ResourceManager.GetString("Exceptions_Messages_CannotLogMessageWithLogLevelSetToNone", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An interval measurement can only be stopped after it has been started..
+        ///   Looks up a localized string similar to A failure occurred during logging..
         /// </summary>
-        internal static string Exceptions_Messages_MeasurementNotStarted {
+        internal static string Exceptions_Messages_LoggingFailure {
             get {
-                return ResourceManager.GetString("Exceptions_Messages_MeasurementNotStarted", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cannot perform operation on timing intervals that belong to different groups..
-        /// </summary>
-        internal static string Exceptions_Messages_NonMatchingTimingGroups {
-            get {
-                return ResourceManager.GetString("Exceptions_Messages_NonMatchingTimingGroups", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The given interval is not stored in the current tree..
-        /// </summary>
-        internal static string Exceptions_Messages_UnknownInterval {
-            get {
-                return ResourceManager.GetString("Exceptions_Messages_UnknownInterval", resourceCulture);
+                return ResourceManager.GetString("Exceptions_Messages_LoggingFailure", resourceCulture);
             }
         }
     }

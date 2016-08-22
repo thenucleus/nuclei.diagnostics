@@ -93,6 +93,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logging\DebugLogTemplateTest.cs" />
+    <Compile Include="Logging\LogMessageTest.cs" />
+    <Compile Include="Logging\CollectionLoggerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemDiagnosticsTest.cs" />
   </ItemGroup>

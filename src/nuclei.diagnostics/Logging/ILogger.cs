@@ -16,6 +16,12 @@ namespace Nuclei.Diagnostics.Logging
     public interface ILogger : IDisposable
     {
         /// <summary>
+        /// Stops the logger and ensures that all log messages have been
+        /// saved to the log.
+        /// </summary>
+        void Close();
+
+        /// <summary>
         /// Gets or sets the current <see cref="LevelToLog"/>.
         /// </summary>
         LevelToLog Level
@@ -23,6 +29,12 @@ namespace Nuclei.Diagnostics.Logging
             get;
             set;
         }
+
+        /// <summary>
+        /// Logs the specified message.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        void Log(ILogMessage message);
 
         /// <summary>
         /// Indicates if a message will be written to the log file based on the
@@ -37,17 +49,5 @@ namespace Nuclei.Diagnostics.Logging
             "SA1628:DocumentationTextMustBeginWithACapitalLetter",
             Justification = "Documentation can start with a language keyword")]
         bool ShouldLog(ILogMessage message);
-
-        /// <summary>
-        /// Logs the specified message.
-        /// </summary>
-        /// <param name="message">The message.</param>
-        void Log(ILogMessage message);
-
-        /// <summary>
-        /// Stops the logger and ensures that all log messages have been
-        /// saved to the log.
-        /// </summary>
-        void Close();
     }
 }
