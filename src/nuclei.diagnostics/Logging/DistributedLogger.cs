@@ -15,7 +15,7 @@ namespace Nuclei.Diagnostics.Logging
     /// <summary>
     /// Defines a logging object that sends <see cref="ILogMessage"/> objects to many differen loggers.
     /// </summary>
-    public sealed class CollectionLogger : ILogger
+    public sealed class DistributedLogger : ILogger
     {
         private static bool IsMessageLoggable(ILogMessage message)
         {
@@ -38,13 +38,13 @@ namespace Nuclei.Diagnostics.Logging
         private readonly IEnumerable<ILogger> _loggers;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CollectionLogger"/> class.
+        /// Initializes a new instance of the <see cref="DistributedLogger"/> class.
         /// </summary>
         /// <param name="loggers">The collection of loggers which should be called for each valid log message.</param>
         /// <exception cref="ArgumentNullException">
         /// Thrown if <paramref name="loggers"/> is <see langword="null"/>.
         /// </exception>
-        public CollectionLogger(IEnumerable<ILogger> loggers)
+        public DistributedLogger(IEnumerable<ILogger> loggers)
         {
             if (loggers == null)
             {

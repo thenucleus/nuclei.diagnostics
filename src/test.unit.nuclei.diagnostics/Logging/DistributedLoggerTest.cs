@@ -14,7 +14,7 @@ namespace Nuclei.Diagnostics.Logging
 {
     [TestFixture]
 
-    public sealed class CollectionLoggerTest
+    public sealed class DistributedLoggerTest
     {
         [Test]
         public void ChangeLevelWithMultipleLoggers()
@@ -25,7 +25,7 @@ namespace Nuclei.Diagnostics.Logging
             var subLogger2 = new Mock<ILogger>();
             subLogger2.SetupAllProperties();
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
             logger.Level = LevelToLog.Info;
 
             Assert.AreEqual(subLogger1.Object.Level, LevelToLog.Info);
@@ -38,7 +38,7 @@ namespace Nuclei.Diagnostics.Logging
             var subLogger = new Mock<ILogger>();
             subLogger.SetupAllProperties();
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger.Object });
             logger.Level = LevelToLog.Info;
 
             Assert.AreEqual(subLogger.Object.Level, LevelToLog.Info);
@@ -48,11 +48,11 @@ namespace Nuclei.Diagnostics.Logging
         [SuppressMessage(
             "Microsoft.Usage",
             "CA1806:DoNotIgnoreMethodResults",
-            MessageId = "Nuclei.Diagnostics.Logging.CollectionLogger",
+            MessageId = "Nuclei.Diagnostics.Logging.DistributedLogger",
             Justification = "Testing that the constructor throws if provided with a null collection.")]
         public void CreateWithNullCollection()
         {
-            Assert.Throws<ArgumentNullException>(() => new CollectionLogger(null));
+            Assert.Throws<ArgumentNullException>(() => new DistributedLogger(null));
         }
 
         [Test]
@@ -71,7 +71,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns(level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             Assert.AreEqual(level, logger.Level);
         }
@@ -93,7 +93,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns(logger2Level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             Assert.AreEqual(logger1Level, logger.Level);
         }
@@ -108,7 +108,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns(level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger.Object });
 
             Assert.AreEqual(level, logger.Level);
         }
@@ -140,7 +140,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns<ILogMessage>(m => m.Level >= logger2Level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             var messageToLog = new LogMessage(LevelToLog.Debug, "a");
             logger.Log(messageToLog);
@@ -180,7 +180,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns<ILogMessage>(m => m.Level >= logger2Level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             var messageToLog = new LogMessage(LevelToLog.Trace, "a");
             logger.Log(messageToLog);
@@ -225,7 +225,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns<ILogMessage>(m => m.Level >= logger2Level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             var messageToLog = new LogMessage(LevelToLog.Info, "a");
             try
@@ -267,7 +267,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns<ILogMessage>(m => m.Level >= logger2Level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             var messageToLog = new LogMessage(LevelToLog.Info, "a");
             try
@@ -310,7 +310,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns<ILogMessage>(m => m.Level >= logger2Level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             logger.Log(null);
             Assert.IsNull(logger1Message);
@@ -332,7 +332,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns<ILogMessage>(m => m.Level >= level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger.Object });
 
             var messageToLog = new LogMessage(LevelToLog.Debug, "a");
             logger.Log(messageToLog);
@@ -358,7 +358,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns<ILogMessage>(m => m.Level >= level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger.Object });
 
             try
             {
@@ -381,7 +381,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns(level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger.Object });
 
             Assert.IsFalse(logger.ShouldLog(new LogMessage(LevelToLog.Debug, "a")));
         }
@@ -403,7 +403,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns(logger2Level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             Assert.IsFalse(logger.ShouldLog(new LogMessage(LevelToLog.Trace, "a")));
             Assert.IsTrue(logger.ShouldLog(new LogMessage(LevelToLog.Debug, "b")));
@@ -427,7 +427,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns(logger2Level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
 
             Assert.IsFalse(logger.ShouldLog(new LogMessage(LevelToLog.Trace, "a")));
             Assert.IsFalse(logger.ShouldLog(new LogMessage(LevelToLog.Debug, "b")));
@@ -444,7 +444,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns(level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger.Object });
 
             Assert.IsFalse(logger.ShouldLog(null));
         }
@@ -459,7 +459,7 @@ namespace Nuclei.Diagnostics.Logging
                     .Returns(level);
             }
 
-            var logger = new CollectionLogger(new ILogger[] { subLogger.Object });
+            var logger = new DistributedLogger(new ILogger[] { subLogger.Object });
 
             Assert.IsFalse(logger.ShouldLog(new LogMessage(LevelToLog.Debug, "a")));
             Assert.IsTrue(logger.ShouldLog(new LogMessage(LevelToLog.Info, "b")));
