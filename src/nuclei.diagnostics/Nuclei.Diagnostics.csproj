@@ -28,12 +28,12 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Deploy|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -81,6 +81,9 @@
     <Compile Include="Logging\ILogMessage.cs" />
     <Compile Include="Logging\ILogTemplate.cs" />
     <Compile Include="Logging\LevelToLog.cs" />
+    <Compile Include="Logging\LoggingException.cs" />
+    <Compile Include="Logging\LogMessage.cs" />
+    <Compile Include="Logging\DistributedLogger.cs" />
     <Compile Include="Metrics\IMetricsCollector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
