@@ -34,7 +34,7 @@ namespace Nuclei.Diagnostics.Logging
         /// Logs the specified message.
         /// </summary>
         /// <param name="message">The message.</param>
-        void Log(ILogMessage message);
+        void Log(LogMessage message);
 
         /// <summary>
         /// Indicates if a message will be written to the log file based on the
@@ -48,6 +48,6 @@ namespace Nuclei.Diagnostics.Logging
             "Microsoft.StyleCop.CSharp.DocumentationRules",
             "SA1628:DocumentationTextMustBeginWithACapitalLetter",
             Justification = "Documentation can start with a language keyword")]
-        bool ShouldLog(ILogMessage message);
+        bool ShouldLog(LogMessage message);
     }
 }

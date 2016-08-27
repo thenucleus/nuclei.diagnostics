@@ -92,7 +92,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logging\DebugLogTemplateTest.cs" />
     <Compile Include="Logging\LogMessageTest.cs" />
     <Compile Include="Logging\DistributedLoggerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,7 +7,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using Nuclei.Diagnostics.Properties;
 
 namespace Nuclei.Diagnostics.Logging
@@ -16,18 +19,8 @@ namespace Nuclei.Diagnostics.Logging
     /// Defines a message that should be logged by an <see cref="ILogger"/> object.
     /// </summary>
     [Serializable]
-    public sealed class LogMessage : ILogMessage
+    public sealed class LogMessage
     {
-        /// <summary>
-        /// The collection that stores the properties for the message.
-        /// </summary>
-        private readonly IDictionary<string, object> _properties;
-
-        /// <summary>
-        /// The text for the log message.
-        /// </summary>
-        private readonly string _text;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="LogMessage"/> class.
         /// </summary>
@@ -40,7 +33,42 @@ namespace Nuclei.Diagnostics.Logging
         ///     Thrown if <paramref name="text"/> is <see langword="null" />.
         /// </exception>
         public LogMessage(LevelToLog level, string text)
-            : this(level, text, null)
+            : this(level, null, null, text, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LogMessage"/> class.
+        /// </summary>
+        /// <param name="level">The level of the log message.</param>
+        /// <param name="format">The text for the log message.</param>
+        /// <param name="formatParameters">The collection of format providers.</param>
+        /// <exception cref="ArgumentException">
+        ///     Thrown if <paramref name="level"/> is <see cref="LevelToLog.None"/>.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        ///     Thrown if <paramref name="format"/> is <see langword="null" />.
+        /// </exception>
+        public LogMessage(LevelToLog level, string format, params object[] formatParameters)
+            : this(level, null, null, format, formatParameters)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LogMessage"/> class.
+        /// </summary>
+        /// <param name="level">The level of the log message.</param>
+        /// <param name="provider">The object that provides the culture-specific format information.</param>
+        /// <param name="format">The text for the log message.</param>
+        /// <param name="formatParameters">The collection of format providers.</param>
+        /// <exception cref="ArgumentException">
+        ///     Thrown if <paramref name="level"/> is <see cref="LevelToLog.None"/>.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        ///     Thrown if <paramref name="format"/> is <see langword="null" />.
+        /// </exception>
+        public LogMessage(LevelToLog level, IFormatProvider provider, string format, params object[] formatParameters)
+            : this(level, null, provider, format, formatParameters)
         {
         }
 
@@ -56,21 +84,102 @@ namespace Nuclei.Diagnostics.Logging
         /// <exception cref="ArgumentNullException">
         ///     Thrown if <paramref name="text"/> is <see langword="null" />.
         /// </exception>
-        public LogMessage(LevelToLog level, string text, IDictionary<string, object> properties)
+        public LogMessage(LevelToLog level, IDictionary<string, object> properties, string text)
+            : this(level, properties, null, text, null)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LogMessage"/> class.
+        /// </summary>
+        /// <param name="level">The level of the log message.</param>
+        /// <param name="properties">The dictionary that contains the additional properties for the current message.</param>
+        /// <param name="format">The text for the log message.</param>
+        /// <param name="formatParameters">The collection of format providers.</param>
+        /// <exception cref="ArgumentException">
+        ///     Thrown if <paramref name="level"/> is <see cref="LevelToLog.None"/>.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        ///     Thrown if <paramref name="format"/> is <see langword="null" />.
+        /// </exception>
+        public LogMessage(LevelToLog level, IDictionary<string, object> properties, string format, params object[] formatParameters)
+            : this(level, properties, null, format, formatParameters)
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LogMessage"/> class.
+        /// </summary>
+        /// <param name="level">The level of the log message.</param>
+        /// <param name="properties">The dictionary that contains the additional properties for the current message.</param>
+        /// <param name="provider">The object that provides the culture-specific format information.</param>
+        /// <param name="format">The text for the log message.</param>
+        /// <param name="formatParameters">The collection of format providers.</param>
+        /// <exception cref="ArgumentException">
+        ///     Thrown if <paramref name="level"/> is <see cref="LevelToLog.None"/>.
+        /// </exception>
+        /// <exception cref="ArgumentNullException">
+        ///     Thrown if <paramref name="format"/> is <see langword="null" />.
+        /// </exception>
+        public LogMessage(
+            LevelToLog level,
+            IDictionary<string, object> properties,
+            IFormatProvider provider,
+            string format,
+            params object[] formatParameters)
         {
             if (level == LevelToLog.None)
             {
                 throw new ArgumentException(Resources.Exceptions_Messages_CannotLogMessageWithLogLevelSetToNone);
             }
 
-            if (text == null)
+            if (format == null)
             {
-                throw new ArgumentNullException("text");
+                throw new ArgumentNullException("format");
             }
 
+            FormatProvider = provider ?? CultureInfo.InvariantCulture;
+            FormatParameters = formatParameters ?? new object[0];
             Level = level;
-            _text = text;
-            _properties = properties;
+            Properties = (properties != null)
+                ? new ReadOnlyDictionary<string, object>(properties)
+                : new ReadOnlyDictionary<string, object>(new Dictionary<string, object>());
+            Text = format;
+        }
+
+        /// <summary>
+        /// Gets an array of objects containing the format parameters.
+        /// </summary>
+        [SuppressMessage(
+            "Microsoft.Performance",
+            "CA1819:PropertiesShouldNotReturnArrays",
+            Justification = "Just returns the object provided in the constructor.")]
+        public object[] FormatParameters
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the object that provides the culture-specific formatting information.
+        /// </summary>
+        public IFormatProvider FormatProvider
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether the message contains additional parameters that
+        /// should be processed when the message is written to the log.
+        /// </summary>
+        public bool HasAdditionalInformation
+        {
+            [DebuggerStepThrough]
+            get
+            {
+                return Properties.Count > 0;
+            }
         }
 
         /// <summary>
@@ -84,40 +193,22 @@ namespace Nuclei.Diagnostics.Logging
         }
 
         /// <summary>
-        /// Returns the message text for this message.
-        /// </summary>
-        /// <returns>
-        /// The text for this message.
-        /// </returns>
-        public string Text()
-        {
-            return _text;
-        }
-
-        /// <summary>
-        /// Gets a value indicating whether the message contains additional parameters that
-        /// should be processed when the message is written to the log.
-        /// </summary>
-        public bool HasAdditionalInformation
-        {
-            [DebuggerStepThrough]
-            get
-            {
-                return _properties != null;
-            }
-        }
-
-        /// <summary>
         /// Gets a collection that contains additional parameters which should be
         /// processed when the message is written to the log.
         /// </summary>
-        public IEnumerable<KeyValuePair<string, object>> Properties
+        public ReadOnlyDictionary<string, object> Properties
         {
-            [DebuggerStepThrough]
-            get
-            {
-                return _properties;
-            }
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the message text for this message.
+        /// </summary>
+        public string Text
+        {
+            get;
+            private set;
         }
     }
 }

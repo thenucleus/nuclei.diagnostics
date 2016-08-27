@@ -117,27 +117,27 @@ namespace Nuclei.Diagnostics.Logging
         public void LogWithMultipleLoggers()
         {
             var logger1Level = LevelToLog.Info;
-            ILogMessage logger1Message = null;
+            LogMessage logger1Message = null;
             var subLogger1 = new Mock<ILogger>();
             {
                 subLogger1.Setup(l => l.Level)
                     .Returns(logger1Level);
-                subLogger1.Setup(l => l.Log(It.IsAny<ILogMessage>()))
-                    .Callback<ILogMessage>(m => logger1Message = m);
-                subLogger1.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger1Level);
+                subLogger1.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => logger1Message = m);
+                subLogger1.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger1Level);
             }
 
             var logger2Level = LevelToLog.Info;
-            ILogMessage logger2Message = null;
+            LogMessage logger2Message = null;
             var subLogger2 = new Mock<ILogger>();
             {
                 subLogger2.Setup(l => l.Level)
                     .Returns(logger2Level);
-                subLogger2.Setup(l => l.Log(It.IsAny<ILogMessage>()))
-                    .Callback<ILogMessage>(m => logger2Message = m);
-                subLogger2.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger2Level);
+                subLogger2.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => logger2Message = m);
+                subLogger2.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger2Level);
             }
 
             var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
@@ -157,27 +157,27 @@ namespace Nuclei.Diagnostics.Logging
         public void LogWithMultipleLoggersAtDifferentLevels()
         {
             var logger1Level = LevelToLog.Debug;
-            ILogMessage logger1Message = null;
+            LogMessage logger1Message = null;
             var subLogger1 = new Mock<ILogger>();
             {
                 subLogger1.Setup(l => l.Level)
                     .Returns(logger1Level);
-                subLogger1.Setup(l => l.Log(It.IsAny<ILogMessage>()))
-                    .Callback<ILogMessage>(m => logger1Message = m);
-                subLogger1.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger1Level);
+                subLogger1.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => logger1Message = m);
+                subLogger1.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger1Level);
             }
 
             var logger2Level = LevelToLog.Info;
-            ILogMessage logger2Message = null;
+            LogMessage logger2Message = null;
             var subLogger2 = new Mock<ILogger>();
             {
                 subLogger2.Setup(l => l.Level)
                     .Returns(logger2Level);
-                subLogger2.Setup(l => l.Log(It.IsAny<ILogMessage>()))
-                    .Callback<ILogMessage>(m => logger2Message = m);
-                subLogger2.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger2Level);
+                subLogger2.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => logger2Message = m);
+                subLogger2.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger2Level);
             }
 
             var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
@@ -207,10 +207,10 @@ namespace Nuclei.Diagnostics.Logging
             {
                 subLogger1.Setup(l => l.Level)
                     .Returns(logger1Level);
-                subLogger1.Setup(l => l.Log(It.IsAny<ILogMessage>()))
+                subLogger1.Setup(l => l.Log(It.IsAny<LogMessage>()))
                     .Throws(logger1Exception);
-                subLogger1.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger1Level);
+                subLogger1.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger1Level);
             }
 
             var logger2Level = LevelToLog.Info;
@@ -219,10 +219,10 @@ namespace Nuclei.Diagnostics.Logging
             {
                 subLogger2.Setup(l => l.Level)
                     .Returns(logger2Level);
-                subLogger2.Setup(l => l.Log(It.IsAny<ILogMessage>()))
+                subLogger2.Setup(l => l.Log(It.IsAny<LogMessage>()))
                     .Throws(logger2Exception);
-                subLogger2.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger2Level);
+                subLogger2.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger2Level);
             }
 
             var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
@@ -249,22 +249,22 @@ namespace Nuclei.Diagnostics.Logging
             {
                 subLogger1.Setup(l => l.Level)
                     .Returns(logger1Level);
-                subLogger1.Setup(l => l.Log(It.IsAny<ILogMessage>()))
+                subLogger1.Setup(l => l.Log(It.IsAny<LogMessage>()))
                     .Throws(logger1Exception);
-                subLogger1.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger1Level);
+                subLogger1.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger1Level);
             }
 
             var logger2Level = LevelToLog.Info;
-            ILogMessage logger2Message = null;
+            LogMessage logger2Message = null;
             var subLogger2 = new Mock<ILogger>();
             {
                 subLogger2.Setup(l => l.Level)
                     .Returns(logger2Level);
-                subLogger2.Setup(l => l.Log(It.IsAny<ILogMessage>()))
-                    .Callback<ILogMessage>(m => logger2Message = m);
-                subLogger2.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger2Level);
+                subLogger2.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => logger2Message = m);
+                subLogger2.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger2Level);
             }
 
             var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
@@ -287,27 +287,27 @@ namespace Nuclei.Diagnostics.Logging
         public void LogWithNullMessage()
         {
             var logger1Level = LevelToLog.Info;
-            ILogMessage logger1Message = null;
+            LogMessage logger1Message = null;
             var subLogger1 = new Mock<ILogger>();
             {
                 subLogger1.Setup(l => l.Level)
                     .Returns(logger1Level);
-                subLogger1.Setup(l => l.Log(It.IsAny<ILogMessage>()))
-                    .Callback<ILogMessage>(m => logger1Message = m);
-                subLogger1.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger1Level);
+                subLogger1.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => logger1Message = m);
+                subLogger1.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger1Level);
             }
 
             var logger2Level = LevelToLog.Info;
-            ILogMessage logger2Message = null;
+            LogMessage logger2Message = null;
             var subLogger2 = new Mock<ILogger>();
             {
                 subLogger2.Setup(l => l.Level)
                     .Returns(logger2Level);
-                subLogger2.Setup(l => l.Log(It.IsAny<ILogMessage>()))
-                    .Callback<ILogMessage>(m => logger2Message = m);
-                subLogger2.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= logger2Level);
+                subLogger2.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => logger2Message = m);
+                subLogger2.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= logger2Level);
             }
 
             var logger = new DistributedLogger(new ILogger[] { subLogger1.Object, subLogger2.Object });
@@ -321,15 +321,15 @@ namespace Nuclei.Diagnostics.Logging
         public void LogWithSingleLogger()
         {
             var level = LevelToLog.Info;
-            ILogMessage message = null;
+            LogMessage message = null;
             var subLogger = new Mock<ILogger>();
             {
                 subLogger.Setup(l => l.Level)
                     .Returns(level);
-                subLogger.Setup(l => l.Log(It.IsAny<ILogMessage>()))
-                    .Callback<ILogMessage>(m => message = m);
-                subLogger.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= level);
+                subLogger.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => message = m);
+                subLogger.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= level);
             }
 
             var logger = new DistributedLogger(new ILogger[] { subLogger.Object });
@@ -352,10 +352,10 @@ namespace Nuclei.Diagnostics.Logging
             {
                 subLogger.Setup(l => l.Level)
                     .Returns(level);
-                subLogger.Setup(l => l.Log(It.IsAny<ILogMessage>()))
+                subLogger.Setup(l => l.Log(It.IsAny<LogMessage>()))
                     .Throws(exception);
-                subLogger.Setup(l => l.ShouldLog(It.IsAny<ILogMessage>()))
-                    .Returns<ILogMessage>(m => m.Level >= level);
+                subLogger.Setup(l => l.ShouldLog(It.IsAny<LogMessage>()))
+                    .Returns<LogMessage>(m => m.Level >= level);
             }
 
             var logger = new DistributedLogger(new ILogger[] { subLogger.Object });

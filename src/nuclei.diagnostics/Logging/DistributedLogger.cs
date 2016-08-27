@@ -13,11 +13,11 @@ using Nuclei.Diagnostics.Properties;
 namespace Nuclei.Diagnostics.Logging
 {
     /// <summary>
-    /// Defines a logging object that sends <see cref="ILogMessage"/> objects to many differen loggers.
+    /// Defines a logging object that sends <see cref="LogMessage"/> objects to many differen loggers.
     /// </summary>
     public sealed class DistributedLogger : ILogger
     {
-        private static bool IsMessageLoggable(ILogMessage message)
+        private static bool IsMessageLoggable(LogMessage message)
         {
             if (message == null)
             {
@@ -112,7 +112,7 @@ namespace Nuclei.Diagnostics.Logging
             "CA1062:Validate arguments of public methods",
             MessageId = "0",
             Justification = "The 'ShouldLog' method validates the message.")]
-        public void Log(ILogMessage message)
+        public void Log(LogMessage message)
         {
             if (!IsMessageLoggable(message))
             {
@@ -160,7 +160,7 @@ namespace Nuclei.Diagnostics.Logging
             "Microsoft.StyleCop.CSharp.DocumentationRules",
             "SA1628:DocumentationTextMustBeginWithACapitalLetter",
             Justification = "Documentation can start with a language keyword")]
-        public bool ShouldLog(ILogMessage message)
+        public bool ShouldLog(LogMessage message)
         {
             if (!IsMessageLoggable(message))
             {
