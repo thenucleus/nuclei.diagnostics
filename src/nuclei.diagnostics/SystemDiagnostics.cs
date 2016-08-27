@@ -19,9 +19,9 @@ namespace Nuclei.Diagnostics
     public sealed class SystemDiagnostics
     {
         /// <summary>
-        /// The action that logs the given string to the underlying loggers.
+        /// The object that logs the given messages.
         /// </summary>
-        private readonly Action<LevelToLog, string> _logger;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// The object that provides metrics collection methods.
@@ -31,12 +31,12 @@ namespace Nuclei.Diagnostics
         /// <summary>
         /// Initializes a new instance of the <see cref="SystemDiagnostics"/> class.
         /// </summary>
-        /// <param name="logger">The action that logs the given string to the underlying loggers.</param>
+        /// <param name="logger">The object that logs the given messages.</param>
         /// <param name="metrics">The object that provides metrics collection methods. May be <see langword="null" />.</param>
         /// <exception cref="ArgumentNullException">
         ///     Thrown if <paramref name="logger"/> is <see langword="null" />.
         /// </exception>
-        public SystemDiagnostics(Action<LevelToLog, string> logger, IMetricsCollector metrics)
+        public SystemDiagnostics(ILogger logger, IMetricsCollector metrics)
         {
             if (logger == null)
             {
@@ -54,24 +54,31 @@ namespace Nuclei.Diagnostics
         /// <param name="message">The message.</param>
         public void Log(LevelToLog severity, string message)
         {
-            _logger(severity, message);
+            _logger.Log(new LogMessage(severity, message));
         }
 
         /// <summary>
-        /// Passes the given message to the system loggers.
+        /// Logs the specified format message with the given arguments. Messages as formatted
+        /// with the <see cref="CultureInfo.InvariantCulture"/> as format provider.
         /// </summary>
         /// <param name="severity">The severity for the message.</param>
-        /// <param name="prefix">The prefix text that should be placed at the start of the logged text.</param>
-        /// <param name="message">The message.</param>
-        public void Log(LevelToLog severity, string prefix, string message)
+        /// <param name="format">The string to format.</param>
+        /// <param name="parameters">The parameters for the format string.</param>
+        public void Log(LevelToLog severity, string format, params object[] parameters)
         {
-            _logger(
-                severity,
-                string.Format(
-                    CultureInfo.InvariantCulture,
-                    "{0} - {1}",
-                    prefix,
-                    message));
+            _logger.Log(new LogMessage(severity, format, parameters));
+        }
+
+        /// <summary>
+        /// Logs the specified format message with the given arguments and format provider.
+        /// </summary>
+        /// <param name="severity">The severity for the message.</param>
+        /// <param name="provider">An object that provides the culture-specific formatting information.</param>
+        /// <param name="format">The string to format.</param>
+        /// <param name="parameters">The parameters for the format string.</param>
+        public void Log(LevelToLog severity, IFormatProvider provider, string format, params object[] parameters)
+        {
+            _logger.Log(new LogMessage(severity, provider, format, parameters));
         }
 
         /// <summary>

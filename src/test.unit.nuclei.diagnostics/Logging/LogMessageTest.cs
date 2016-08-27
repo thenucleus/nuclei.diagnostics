@@ -7,6 +7,7 @@
 
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using NUnit.Framework;
 
 namespace Nuclei.Diagnostics.Logging.NLog
@@ -26,9 +27,67 @@ namespace Nuclei.Diagnostics.Logging.NLog
 
             var message = new LogMessage(level, text);
 
-            Assert.AreEqual(level, message.Level);
-            Assert.AreEqual(text, message.Text());
+            Assert.AreEqual(0, message.FormatParameters.Length);
+
+            Assert.IsNotNull(message.FormatProvider);
+            Assert.AreEqual(CultureInfo.InvariantCulture, message.FormatProvider);
+
             Assert.IsFalse(message.HasAdditionalInformation);
+
+            Assert.AreEqual(level, message.Level);
+
+            Assert.AreEqual(0, message.Properties.Count);
+
+            Assert.AreEqual(text, message.Text);
+        }
+
+        [Test]
+        public void CreateWithFormatParameters()
+        {
+            var level = LevelToLog.Debug;
+            var text = "text";
+            var parameter = 10;
+
+            var message = new LogMessage(level, text, parameter);
+
+            Assert.AreEqual(1, message.FormatParameters.Length);
+            Assert.AreEqual(parameter, message.FormatParameters[0]);
+
+            Assert.IsNotNull(message.FormatProvider);
+            Assert.AreEqual(CultureInfo.InvariantCulture, message.FormatProvider);
+
+            Assert.IsFalse(message.HasAdditionalInformation);
+
+            Assert.AreEqual(level, message.Level);
+
+            Assert.AreEqual(0, message.Properties.Count);
+
+            Assert.AreEqual(text, message.Text);
+        }
+
+        [Test]
+        public void CreateWithFormatProviderAndParameters()
+        {
+            var level = LevelToLog.Debug;
+            var text = "text";
+            var parameter = 10;
+            var provider = CultureInfo.CurrentUICulture;
+
+            var message = new LogMessage(level, provider, text, parameter);
+
+            Assert.AreEqual(1, message.FormatParameters.Length);
+            Assert.AreEqual(parameter, message.FormatParameters[0]);
+
+            Assert.IsNotNull(message.FormatProvider);
+            Assert.AreEqual(provider, message.FormatProvider);
+
+            Assert.IsFalse(message.HasAdditionalInformation);
+
+            Assert.AreEqual(level, message.Level);
+
+            Assert.AreEqual(0, message.Properties.Count);
+
+            Assert.AreEqual(text, message.Text);
         }
 
         [Test]
@@ -36,14 +95,25 @@ namespace Nuclei.Diagnostics.Logging.NLog
         {
             var level = LevelToLog.Debug;
             var text = "text";
-            var properties = new Dictionary<string, object>();
+            var properties = new Dictionary<string, object>
+                {
+                    { "Key", 10 }
+                };
 
-            var message = new LogMessage(level, text, properties);
+            var message = new LogMessage(level, properties, text);
+
+            Assert.AreEqual(0, message.FormatParameters.Length);
+
+            Assert.IsNotNull(message.FormatProvider);
+            Assert.AreEqual(CultureInfo.InvariantCulture, message.FormatProvider);
+
+            Assert.IsTrue(message.HasAdditionalInformation);
 
             Assert.AreEqual(level, message.Level);
-            Assert.AreEqual(text, message.Text());
-            Assert.IsTrue(message.HasAdditionalInformation);
-            Assert.AreSame(properties, message.Properties);
+
+            Assert.That(message.Properties, Is.EquivalentTo(properties));
+
+            Assert.AreEqual(text, message.Text);
         }
     }
 }

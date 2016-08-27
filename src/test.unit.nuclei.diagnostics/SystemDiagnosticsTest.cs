@@ -32,50 +32,67 @@ namespace Nuclei.Diagnostics
         [Test]
         public void LogWithSeverityAndMessage()
         {
-            var storedLevel = LevelToLog.None;
-            var storedMessage = string.Empty;
-            Action<LevelToLog, string> logger =
-                (l, m) =>
-                {
-                    storedLevel = l;
-                    storedMessage = m;
-                };
-            var diagnostics = new SystemDiagnostics(logger, null);
+            LogMessage storedMessage = null;
+            var logger = new Mock<ILogger>();
+            {
+                logger.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => storedMessage = m);
+            }
+
+            var diagnostics = new SystemDiagnostics(logger.Object, null);
 
             var providedLevel = LevelToLog.Error;
             var providedMessage = "This is a message";
             diagnostics.Log(providedLevel, providedMessage);
 
-            Assert.AreEqual(providedLevel, storedLevel);
-            Assert.AreEqual(providedMessage, storedMessage);
+            Assert.AreEqual(providedLevel, storedMessage.Level);
+            Assert.AreEqual(providedMessage, storedMessage.Text);
         }
 
         [Test]
-        public void LogWithSeverityPrefixAndMessage()
+        public void LogWithSeverityMessageAndFormatParameters()
         {
-            var storedLevel = LevelToLog.None;
-            var storedMessage = string.Empty;
-            Action<LevelToLog, string> logger =
-                (l, m) =>
-                {
-                    storedLevel = l;
-                    storedMessage = m;
-                };
-            var diagnostics = new SystemDiagnostics(logger, null);
+            LogMessage storedMessage = null;
+            var logger = new Mock<ILogger>();
+            {
+                logger.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => storedMessage = m);
+            }
+
+            var diagnostics = new SystemDiagnostics(logger.Object, null);
 
             var providedLevel = LevelToLog.Error;
-            var providedPrefix = "Prefix";
             var providedMessage = "This is a message";
-            diagnostics.Log(providedLevel, providedPrefix, providedMessage);
+            var parameter = 10;
+            diagnostics.Log(providedLevel, providedMessage, parameter);
 
-            Assert.AreEqual(providedLevel, storedLevel);
-            Assert.AreEqual(
-                string.Format(
-                    CultureInfo.InvariantCulture,
-                    "{0} - {1}",
-                    providedPrefix,
-                    providedMessage),
-                storedMessage);
+            Assert.AreEqual(providedLevel, storedMessage.Level);
+            Assert.AreEqual(providedMessage, storedMessage.Text);
+            Assert.AreEqual(parameter, storedMessage.FormatParameters[0]);
+        }
+
+        [Test]
+        public void LogWithSeverityMessageProviderAndFormatParameters()
+        {
+            LogMessage storedMessage = null;
+            var logger = new Mock<ILogger>();
+            {
+                logger.Setup(l => l.Log(It.IsAny<LogMessage>()))
+                    .Callback<LogMessage>(m => storedMessage = m);
+            }
+
+            var diagnostics = new SystemDiagnostics(logger.Object, null);
+
+            var providedLevel = LevelToLog.Error;
+            var providedMessage = "This is a message";
+            var provider = CultureInfo.CurrentCulture;
+            var parameter = 10;
+            diagnostics.Log(providedLevel, provider, providedMessage, parameter);
+
+            Assert.AreEqual(providedLevel, storedMessage.Level);
+            Assert.AreEqual(providedMessage, storedMessage.Text);
+            Assert.AreEqual(provider, storedMessage.FormatProvider);
+            Assert.AreEqual(parameter, storedMessage.FormatParameters[0]);
         }
     }
 }

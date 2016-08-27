@@ -83,7 +83,7 @@ namespace Nuclei.Diagnostics.Logging
         public LevelToLog DefaultLogLevel()
         {
             return _configuration.HasValueFor(DiagnosticsConfigurationKeys.DefaultLogLevel)
-                ? _configuration.Value<LevelToLog>(DiagnosticsConfigurationKeys.DefaultLogLevel)
+                ? _configuration.Value(DiagnosticsConfigurationKeys.DefaultLogLevel)
                 : LevelToLog.Error;
         }
 
@@ -106,7 +106,7 @@ namespace Nuclei.Diagnostics.Logging
                 DebugLogFormat,
                 _getCurrentTime().ToString("yyyy/MM/ddTHH:mm:ss.fffff zzz", CultureInfo.CurrentCulture),
                 message.Level,
-                message.Text());
+                message.Text);
         }
 
         /// <summary>
