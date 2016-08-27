@@ -16,7 +16,7 @@ namespace Nuclei.Diagnostics.Logging
     /// Defines a message that should be logged by an <see cref="ILogger"/> object.
     /// </summary>
     [Serializable]
-    public sealed class LogMessage : ILogMessage
+    public sealed class LogMessage
     {
         /// <summary>
         /// The collection that stores the properties for the message.

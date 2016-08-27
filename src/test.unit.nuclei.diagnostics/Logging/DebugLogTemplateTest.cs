@@ -40,22 +40,18 @@ namespace Nuclei.Diagnostics.Logging
             }
 
             var template = new DebugLogTemplate(configuration.Object, GetDefaultDateTime);
-            var msg = new Mock<ILogMessage>();
-            {
-                msg.Setup(m => m.Level)
-                    .Returns(LevelToLog.Info);
-                msg.Setup(m => m.Text())
-                    .Returns("blabla");
-            }
+            var level = LevelToLog.Info;
+            var messageText = "text";
+            var msg = new LogMessage(LevelToLog.Info, messageText);
 
-            var text = template.Translate(msg.Object);
+            var text = template.Translate(msg);
 
             var expectedText = string.Format(
                 CultureInfo.CurrentCulture,
                 DebugLogTemplate.DebugLogFormat,
                 GetDefaultDateTime().ToString("yyyy/MM/ddTHH:mm:ss.fffff zzz", CultureInfo.CurrentCulture),
-                msg.Object.Level,
-                msg.Object.Text());
+                level,
+                messageText);
             Assert.AreEqual(expectedText, text);
         }
 

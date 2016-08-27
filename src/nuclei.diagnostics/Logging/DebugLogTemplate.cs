@@ -94,7 +94,7 @@ namespace Nuclei.Diagnostics.Logging
         /// <returns>
         /// The desired string representation of the log message.
         /// </returns>
-        public string Translate(ILogMessage message)
+        public string Translate(LogMessage message)
         {
             if (message == null)
             {
