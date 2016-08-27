@@ -75,10 +75,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logging\DebugLogTemplate.cs" />
     <Compile Include="DiagnosticsConfigurationKeys.cs" />
     <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Logging\ILogTemplate.cs" />
     <Compile Include="Logging\LevelToLog.cs" />
     <Compile Include="Logging\LoggingException.cs" />
     <Compile Include="Logging\LogMessage.cs" />
