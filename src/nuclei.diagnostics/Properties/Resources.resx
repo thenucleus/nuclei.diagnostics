@@ -120,16 +120,7 @@
   <data name="Exceptions_Messages_CannotLogMessageWithLogLevelSetToNone" xml:space="preserve">
     <value>It is not possible to log a message if the LogLevel is set to None.</value>
   </data>
-  <data name="Exceptions_Messages_CanOnlyMeasureIntervalOnce" xml:space="preserve">
-    <value>An interval can only be started once.</value>
-  </data>
-  <data name="Exceptions_Messages_MeasurementNotStarted" xml:space="preserve">
-    <value>An interval measurement can only be stopped after it has been started.</value>
-  </data>
-  <data name="Exceptions_Messages_UnknownInterval" xml:space="preserve">
-    <value>The given interval is not stored in the current tree.</value>
-  </data>
-  <data name="Exceptions_Messages_NonMatchingTimingGroups" xml:space="preserve">
-    <value>Cannot perform operation on timing intervals that belong to different groups.</value>
+  <data name="Exceptions_Messages_LoggingFailure" xml:space="preserve">
+    <value>A failure occurred during logging.</value>
   </data>
 </root>
