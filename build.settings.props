@@ -511,7 +511,7 @@
             The version of the .NET framework at which the assemblies should be targeted. This value is set
             for all projects that include the MsBuild.Projects.XXXX NuGet package.
         -->
-        <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     </PropertyGroup>
 
 
