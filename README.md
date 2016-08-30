@@ -1,4 +1,5 @@
-# Nuclei
+# Nuclei.Diagnostics
+
 Nuclei is a collection of libraries containing classes and functions for inter-application interaction via a command mechanism, diagnostics, configuration handling,
 exception handling and assembly location and loading.
 The 'Nuclei.Diagnostics' assembly contains a set of classes and interfaces for logging and metrics collection.

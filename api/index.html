@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Nuclei.Diagnostics </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Nuclei.Diagnostics ">
+    <meta name="generator" content="docfx 2.3.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <a href="https://github.com/thenucleus/nuclei.diagnostics/blob/release/0.9.0/doc/Nuclei.Diagnostics.Documentation/api/index.md/#L1" class="btn btn-primary pull-right mobile-hide">Improve this Doc</a>
+              <h1 id="nuclei-diagnostics">Nuclei.Diagnostics</h1>
+              
+<h2 id="distributedlogger">DistributedLogger</h2>
+<p>The <code>DistributedLogger</code> class provides an <code>ILogger</code> implementation that can send the log messages to multiple sub-loggers. The 
+level at which the <code>DistributedLogger</code> starts logging is determined by the sub-loggers, a message will be logged if there is a
+<code>ILogger</code> implementation that will take the message. This allows for instance having a file logger that logs all messages while
+having an eventlog logger which only logs the fatal messages.</p>
+<pre><code class="lang-csharp" name="DistributedLogger.Level">var logger1 = NewLogger();
+logger1.Level = LevelToLog.Debug;
+
+var logger2 = NewLogger();
+logger2.Level = LevelToLog.Warn;
+
+var logger = new DistributedLogger(new ILogger[] { logger1, logger2 });
+
+// The level is the lowest of the two log levels, in this case LevelToLog.Debug
+var level = logger.Level;
+</code></pre><pre><code class="lang-csharp" name="DistributedLogger.ShouldLog">var logger1 = NewLogger();
+logger1.Level = LevelToLog.Debug;
+
+var logger2 = NewLogger();
+logger2.Level = LevelToLog.Info;
+
+var logger = new DistributedLogger(new ILogger[] { logger1, logger2 });
+
+// Returns false
+var shouldLog = logger.ShouldLog(new LogMessage(LevelToLog.Trace, &quot;a&quot;));
+
+// Returns true because logger1 will accept this message
+shouldLog = logger.ShouldLog(new LogMessage(LevelToLog.Debug, &quot;b&quot;));
+
+// Returns true because both loggers will accept this message
+shouldLog = logger.ShouldLog(new LogMessage(LevelToLog.Info, &quot;c&quot;));
+</code></pre><pre><code class="lang-csharp" name="DistributedLogger.Log">var logger1 = NewLogger();
+logger1.Level = LevelToLog.Debug;
+
+var logger2 = NewLogger();
+logger2.Level = LevelToLog.Info;
+
+var logger = new DistributedLogger(new ILogger[] { logger1, logger2 });
+
+// This message should not be logged by either logger
+var messageToLog = new LogMessage(LevelToLog.Trace, &quot;a&quot;);
+logger.Log(messageToLog);
+
+// This message should only be logged by loger1
+messageToLog = new LogMessage(LevelToLog.Debug, &quot;b&quot;);
+logger.Log(messageToLog);
+
+// This message should be logged by both loggers
+messageToLog = new LogMessage(LevelToLog.Info, &quot;c&quot;);
+logger.Log(messageToLog);
+</code></pre><h2 id="systemdiagnostics">SystemDiagnostics</h2>
+<p>The <code>SystemDiagnostics</code> class provides a convenient way to distribute references to both <code>Ilogger</code> and <code>IMetricsCollector</code> instances.</p>
+<pre><code class="lang-csharp" name="SystemDiagnostics.Log">var logger = mockLogger.Object;
+
+var diagnostics = new SystemDiagnostics(logger, null);
+
+var providedLevel = LevelToLog.Error;
+var providedMessage = &quot;This is a message&quot;;
+diagnostics.Log(providedLevel, providedMessage);
+</code></pre>
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+            <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+            </nav>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) - TheNucleus 2013 - 2016. All rights reserved.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>

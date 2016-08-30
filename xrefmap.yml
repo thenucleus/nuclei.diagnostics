@@ -1,0 +1,483 @@
+### YamlMime:XRefMap
+sorted: true
+references:
+- uid: Nuclei.Diagnostics
+  name: Nuclei.Diagnostics
+  href: api/Nuclei.Diagnostics.html#Nuclei_Diagnostics
+  commentId: N:Nuclei.Diagnostics
+  fullName: Nuclei.Diagnostics
+- uid: Nuclei.Diagnostics.DiagnosticsConfigurationKeys
+  name: DiagnosticsConfigurationKeys
+  href: api/Nuclei.Diagnostics.DiagnosticsConfigurationKeys.html#Nuclei_Diagnostics_DiagnosticsConfigurationKeys
+  commentId: T:Nuclei.Diagnostics.DiagnosticsConfigurationKeys
+  fullName: Nuclei.Diagnostics.DiagnosticsConfigurationKeys
+- uid: Nuclei.Diagnostics.DiagnosticsConfigurationKeys.DefaultLogLevel
+  name: DefaultLogLevel
+  href: api/Nuclei.Diagnostics.DiagnosticsConfigurationKeys.html#Nuclei_Diagnostics_DiagnosticsConfigurationKeys_DefaultLogLevel
+  commentId: F:Nuclei.Diagnostics.DiagnosticsConfigurationKeys.DefaultLogLevel
+  fullName: Nuclei.Diagnostics.DiagnosticsConfigurationKeys.DefaultLogLevel
+- uid: Nuclei.Diagnostics.DiagnosticsConfigurationKeys.ToCollection
+  name: ToCollection()
+  href: api/Nuclei.Diagnostics.DiagnosticsConfigurationKeys.html#Nuclei_Diagnostics_DiagnosticsConfigurationKeys_ToCollection
+  commentId: M:Nuclei.Diagnostics.DiagnosticsConfigurationKeys.ToCollection
+  fullName: Nuclei.Diagnostics.DiagnosticsConfigurationKeys.ToCollection()
+- uid: Nuclei.Diagnostics.Logging
+  name: Nuclei.Diagnostics.Logging
+  href: api/Nuclei.Diagnostics.Logging.html#Nuclei_Diagnostics_Logging
+  commentId: N:Nuclei.Diagnostics.Logging
+  fullName: Nuclei.Diagnostics.Logging
+- uid: Nuclei.Diagnostics.Logging.CollectionLogger
+  name: CollectionLogger
+  href: api/Nuclei.Diagnostics.Logging.CollectionLogger.html#Nuclei_Diagnostics_Logging_CollectionLogger
+  commentId: T:Nuclei.Diagnostics.Logging.CollectionLogger
+  fullName: Nuclei.Diagnostics.Logging.CollectionLogger
+- uid: Nuclei.Diagnostics.Logging.CollectionLogger.#ctor(System.Collections.Generic.IEnumerable{Nuclei.Diagnostics.Logging.ILogger})
+  name: CollectionLogger(IEnumerable<ILogger>)
+  href: api/Nuclei.Diagnostics.Logging.CollectionLogger.html#Nuclei_Diagnostics_Logging_CollectionLogger__ctor_System_Collections_Generic_IEnumerable_Nuclei_Diagnostics_Logging_ILogger__
+  commentId: M:Nuclei.Diagnostics.Logging.CollectionLogger.#ctor(System.Collections.Generic.IEnumerable{Nuclei.Diagnostics.Logging.ILogger})
+  name.vb: CollectionLogger(IEnumerable(Of ILogger))
+  fullName: Nuclei.Diagnostics.Logging.CollectionLogger.CollectionLogger(System.Collections.Generic.IEnumerable<Nuclei.Diagnostics.Logging.ILogger>)
+  fullName.vb: Nuclei.Diagnostics.Logging.CollectionLogger.CollectionLogger(System.Collections.Generic.IEnumerable(Of Nuclei.Diagnostics.Logging.ILogger))
+- uid: Nuclei.Diagnostics.Logging.CollectionLogger.Close
+  name: Close()
+  href: api/Nuclei.Diagnostics.Logging.CollectionLogger.html#Nuclei_Diagnostics_Logging_CollectionLogger_Close
+  commentId: M:Nuclei.Diagnostics.Logging.CollectionLogger.Close
+  fullName: Nuclei.Diagnostics.Logging.CollectionLogger.Close()
+- uid: Nuclei.Diagnostics.Logging.CollectionLogger.Dispose
+  name: Dispose()
+  href: api/Nuclei.Diagnostics.Logging.CollectionLogger.html#Nuclei_Diagnostics_Logging_CollectionLogger_Dispose
+  commentId: M:Nuclei.Diagnostics.Logging.CollectionLogger.Dispose
+  fullName: Nuclei.Diagnostics.Logging.CollectionLogger.Dispose()
+- uid: Nuclei.Diagnostics.Logging.CollectionLogger.Level
+  name: Level
+  href: api/Nuclei.Diagnostics.Logging.CollectionLogger.html#Nuclei_Diagnostics_Logging_CollectionLogger_Level
+  commentId: P:Nuclei.Diagnostics.Logging.CollectionLogger.Level
+  fullName: Nuclei.Diagnostics.Logging.CollectionLogger.Level
+- uid: Nuclei.Diagnostics.Logging.CollectionLogger.Log(Nuclei.Diagnostics.Logging.ILogMessage)
+  name: Log(ILogMessage)
+  href: api/Nuclei.Diagnostics.Logging.CollectionLogger.html#Nuclei_Diagnostics_Logging_CollectionLogger_Log_Nuclei_Diagnostics_Logging_ILogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.CollectionLogger.Log(Nuclei.Diagnostics.Logging.ILogMessage)
+  fullName: Nuclei.Diagnostics.Logging.CollectionLogger.Log(Nuclei.Diagnostics.Logging.ILogMessage)
+- uid: Nuclei.Diagnostics.Logging.CollectionLogger.ShouldLog(Nuclei.Diagnostics.Logging.ILogMessage)
+  name: ShouldLog(ILogMessage)
+  href: api/Nuclei.Diagnostics.Logging.CollectionLogger.html#Nuclei_Diagnostics_Logging_CollectionLogger_ShouldLog_Nuclei_Diagnostics_Logging_ILogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.CollectionLogger.ShouldLog(Nuclei.Diagnostics.Logging.ILogMessage)
+  fullName: Nuclei.Diagnostics.Logging.CollectionLogger.ShouldLog(Nuclei.Diagnostics.Logging.ILogMessage)
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate
+  name: DebugLogTemplate
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate
+  commentId: T:Nuclei.Diagnostics.Logging.DebugLogTemplate
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.#ctor(Nuclei.Configuration.IConfiguration,System.Func{System.DateTimeOffset})
+  name: DebugLogTemplate(IConfiguration, Func<DateTimeOffset>)
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate__ctor_Nuclei_Configuration_IConfiguration_System_Func_System_DateTimeOffset__
+  commentId: M:Nuclei.Diagnostics.Logging.DebugLogTemplate.#ctor(Nuclei.Configuration.IConfiguration,System.Func{System.DateTimeOffset})
+  name.vb: DebugLogTemplate(IConfiguration, Func(Of DateTimeOffset))
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.DebugLogTemplate(Nuclei.Configuration.IConfiguration, System.Func<System.DateTimeOffset>)
+  fullName.vb: Nuclei.Diagnostics.Logging.DebugLogTemplate.DebugLogTemplate(Nuclei.Configuration.IConfiguration, System.Func(Of System.DateTimeOffset))
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.DebugLogFormat
+  name: DebugLogFormat
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_DebugLogFormat
+  commentId: F:Nuclei.Diagnostics.Logging.DebugLogTemplate.DebugLogFormat
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.DebugLogFormat
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.DefaultLogLevel
+  name: DefaultLogLevel()
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_DefaultLogLevel
+  commentId: M:Nuclei.Diagnostics.Logging.DebugLogTemplate.DefaultLogLevel
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.DefaultLogLevel()
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(Nuclei.Diagnostics.Logging.DebugLogTemplate)
+  name: Equals(DebugLogTemplate)
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_Equals_Nuclei_Diagnostics_Logging_DebugLogTemplate_
+  commentId: M:Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(Nuclei.Diagnostics.Logging.DebugLogTemplate)
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(Nuclei.Diagnostics.Logging.DebugLogTemplate)
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(Nuclei.Diagnostics.Logging.ILogTemplate)
+  name: Equals(ILogTemplate)
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_Equals_Nuclei_Diagnostics_Logging_ILogTemplate_
+  commentId: M:Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(Nuclei.Diagnostics.Logging.ILogTemplate)
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(Nuclei.Diagnostics.Logging.ILogTemplate)
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(System.Object)
+  name: Equals(Object)
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_Equals_System_Object_
+  commentId: M:Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(System.Object)
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.Equals(System.Object)
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.GetHashCode
+  name: GetHashCode()
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_GetHashCode
+  commentId: M:Nuclei.Diagnostics.Logging.DebugLogTemplate.GetHashCode
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.GetHashCode()
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.Name
+  name: Name
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_Name
+  commentId: P:Nuclei.Diagnostics.Logging.DebugLogTemplate.Name
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.Name
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.ToString
+  name: ToString()
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_ToString
+  commentId: M:Nuclei.Diagnostics.Logging.DebugLogTemplate.ToString
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.ToString()
+- uid: Nuclei.Diagnostics.Logging.DebugLogTemplate.Translate(Nuclei.Diagnostics.Logging.LogMessage)
+  name: Translate(LogMessage)
+  href: api/Nuclei.Diagnostics.Logging.DebugLogTemplate.html#Nuclei_Diagnostics_Logging_DebugLogTemplate_Translate_Nuclei_Diagnostics_Logging_LogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.DebugLogTemplate.Translate(Nuclei.Diagnostics.Logging.LogMessage)
+  fullName: Nuclei.Diagnostics.Logging.DebugLogTemplate.Translate(Nuclei.Diagnostics.Logging.LogMessage)
+- uid: Nuclei.Diagnostics.Logging.DistributedLogger
+  name: DistributedLogger
+  href: api/Nuclei.Diagnostics.Logging.DistributedLogger.html#Nuclei_Diagnostics_Logging_DistributedLogger
+  commentId: T:Nuclei.Diagnostics.Logging.DistributedLogger
+  fullName: Nuclei.Diagnostics.Logging.DistributedLogger
+- uid: Nuclei.Diagnostics.Logging.DistributedLogger.#ctor(System.Collections.Generic.IEnumerable{Nuclei.Diagnostics.Logging.ILogger})
+  name: DistributedLogger(IEnumerable<ILogger>)
+  href: api/Nuclei.Diagnostics.Logging.DistributedLogger.html#Nuclei_Diagnostics_Logging_DistributedLogger__ctor_System_Collections_Generic_IEnumerable_Nuclei_Diagnostics_Logging_ILogger__
+  commentId: M:Nuclei.Diagnostics.Logging.DistributedLogger.#ctor(System.Collections.Generic.IEnumerable{Nuclei.Diagnostics.Logging.ILogger})
+  name.vb: DistributedLogger(IEnumerable(Of ILogger))
+  fullName: Nuclei.Diagnostics.Logging.DistributedLogger.DistributedLogger(System.Collections.Generic.IEnumerable<Nuclei.Diagnostics.Logging.ILogger>)
+  fullName.vb: Nuclei.Diagnostics.Logging.DistributedLogger.DistributedLogger(System.Collections.Generic.IEnumerable(Of Nuclei.Diagnostics.Logging.ILogger))
+- uid: Nuclei.Diagnostics.Logging.DistributedLogger.Close
+  name: Close()
+  href: api/Nuclei.Diagnostics.Logging.DistributedLogger.html#Nuclei_Diagnostics_Logging_DistributedLogger_Close
+  commentId: M:Nuclei.Diagnostics.Logging.DistributedLogger.Close
+  fullName: Nuclei.Diagnostics.Logging.DistributedLogger.Close()
+- uid: Nuclei.Diagnostics.Logging.DistributedLogger.Dispose
+  name: Dispose()
+  href: api/Nuclei.Diagnostics.Logging.DistributedLogger.html#Nuclei_Diagnostics_Logging_DistributedLogger_Dispose
+  commentId: M:Nuclei.Diagnostics.Logging.DistributedLogger.Dispose
+  fullName: Nuclei.Diagnostics.Logging.DistributedLogger.Dispose()
+- uid: Nuclei.Diagnostics.Logging.DistributedLogger.Level
+  name: Level
+  href: api/Nuclei.Diagnostics.Logging.DistributedLogger.html#Nuclei_Diagnostics_Logging_DistributedLogger_Level
+  commentId: P:Nuclei.Diagnostics.Logging.DistributedLogger.Level
+  fullName: Nuclei.Diagnostics.Logging.DistributedLogger.Level
+- uid: Nuclei.Diagnostics.Logging.DistributedLogger.Log(Nuclei.Diagnostics.Logging.LogMessage)
+  name: Log(LogMessage)
+  href: api/Nuclei.Diagnostics.Logging.DistributedLogger.html#Nuclei_Diagnostics_Logging_DistributedLogger_Log_Nuclei_Diagnostics_Logging_LogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.DistributedLogger.Log(Nuclei.Diagnostics.Logging.LogMessage)
+  fullName: Nuclei.Diagnostics.Logging.DistributedLogger.Log(Nuclei.Diagnostics.Logging.LogMessage)
+- uid: Nuclei.Diagnostics.Logging.DistributedLogger.ShouldLog(Nuclei.Diagnostics.Logging.LogMessage)
+  name: ShouldLog(LogMessage)
+  href: api/Nuclei.Diagnostics.Logging.DistributedLogger.html#Nuclei_Diagnostics_Logging_DistributedLogger_ShouldLog_Nuclei_Diagnostics_Logging_LogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.DistributedLogger.ShouldLog(Nuclei.Diagnostics.Logging.LogMessage)
+  fullName: Nuclei.Diagnostics.Logging.DistributedLogger.ShouldLog(Nuclei.Diagnostics.Logging.LogMessage)
+- uid: Nuclei.Diagnostics.Logging.ILogger
+  name: ILogger
+  href: api/Nuclei.Diagnostics.Logging.ILogger.html#Nuclei_Diagnostics_Logging_ILogger
+  commentId: T:Nuclei.Diagnostics.Logging.ILogger
+  fullName: Nuclei.Diagnostics.Logging.ILogger
+- uid: Nuclei.Diagnostics.Logging.ILogger.Close
+  name: Close()
+  href: api/Nuclei.Diagnostics.Logging.ILogger.html#Nuclei_Diagnostics_Logging_ILogger_Close
+  commentId: M:Nuclei.Diagnostics.Logging.ILogger.Close
+  fullName: Nuclei.Diagnostics.Logging.ILogger.Close()
+- uid: Nuclei.Diagnostics.Logging.ILogger.Level
+  name: Level
+  href: api/Nuclei.Diagnostics.Logging.ILogger.html#Nuclei_Diagnostics_Logging_ILogger_Level
+  commentId: P:Nuclei.Diagnostics.Logging.ILogger.Level
+  fullName: Nuclei.Diagnostics.Logging.ILogger.Level
+- uid: Nuclei.Diagnostics.Logging.ILogger.Log(Nuclei.Diagnostics.Logging.LogMessage)
+  name: Log(LogMessage)
+  href: api/Nuclei.Diagnostics.Logging.ILogger.html#Nuclei_Diagnostics_Logging_ILogger_Log_Nuclei_Diagnostics_Logging_LogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.ILogger.Log(Nuclei.Diagnostics.Logging.LogMessage)
+  fullName: Nuclei.Diagnostics.Logging.ILogger.Log(Nuclei.Diagnostics.Logging.LogMessage)
+- uid: Nuclei.Diagnostics.Logging.ILogger.ShouldLog(Nuclei.Diagnostics.Logging.LogMessage)
+  name: ShouldLog(LogMessage)
+  href: api/Nuclei.Diagnostics.Logging.ILogger.html#Nuclei_Diagnostics_Logging_ILogger_ShouldLog_Nuclei_Diagnostics_Logging_LogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.ILogger.ShouldLog(Nuclei.Diagnostics.Logging.LogMessage)
+  fullName: Nuclei.Diagnostics.Logging.ILogger.ShouldLog(Nuclei.Diagnostics.Logging.LogMessage)
+- uid: Nuclei.Diagnostics.Logging.ILogMessage
+  name: ILogMessage
+  href: api/Nuclei.Diagnostics.Logging.ILogMessage.html#Nuclei_Diagnostics_Logging_ILogMessage
+  commentId: T:Nuclei.Diagnostics.Logging.ILogMessage
+  fullName: Nuclei.Diagnostics.Logging.ILogMessage
+- uid: Nuclei.Diagnostics.Logging.ILogMessage.FormatParameters
+  name: FormatParameters
+  href: api/Nuclei.Diagnostics.Logging.ILogMessage.html#Nuclei_Diagnostics_Logging_ILogMessage_FormatParameters
+  commentId: P:Nuclei.Diagnostics.Logging.ILogMessage.FormatParameters
+  fullName: Nuclei.Diagnostics.Logging.ILogMessage.FormatParameters
+- uid: Nuclei.Diagnostics.Logging.ILogMessage.FormatProvider
+  name: FormatProvider
+  href: api/Nuclei.Diagnostics.Logging.ILogMessage.html#Nuclei_Diagnostics_Logging_ILogMessage_FormatProvider
+  commentId: P:Nuclei.Diagnostics.Logging.ILogMessage.FormatProvider
+  fullName: Nuclei.Diagnostics.Logging.ILogMessage.FormatProvider
+- uid: Nuclei.Diagnostics.Logging.ILogMessage.HasAdditionalInformation
+  name: HasAdditionalInformation
+  href: api/Nuclei.Diagnostics.Logging.ILogMessage.html#Nuclei_Diagnostics_Logging_ILogMessage_HasAdditionalInformation
+  commentId: P:Nuclei.Diagnostics.Logging.ILogMessage.HasAdditionalInformation
+  fullName: Nuclei.Diagnostics.Logging.ILogMessage.HasAdditionalInformation
+- uid: Nuclei.Diagnostics.Logging.ILogMessage.Level
+  name: Level
+  href: api/Nuclei.Diagnostics.Logging.ILogMessage.html#Nuclei_Diagnostics_Logging_ILogMessage_Level
+  commentId: P:Nuclei.Diagnostics.Logging.ILogMessage.Level
+  fullName: Nuclei.Diagnostics.Logging.ILogMessage.Level
+- uid: Nuclei.Diagnostics.Logging.ILogMessage.Properties
+  name: Properties
+  href: api/Nuclei.Diagnostics.Logging.ILogMessage.html#Nuclei_Diagnostics_Logging_ILogMessage_Properties
+  commentId: P:Nuclei.Diagnostics.Logging.ILogMessage.Properties
+  fullName: Nuclei.Diagnostics.Logging.ILogMessage.Properties
+- uid: Nuclei.Diagnostics.Logging.ILogMessage.Text
+  name: Text
+  href: api/Nuclei.Diagnostics.Logging.ILogMessage.html#Nuclei_Diagnostics_Logging_ILogMessage_Text
+  commentId: P:Nuclei.Diagnostics.Logging.ILogMessage.Text
+  fullName: Nuclei.Diagnostics.Logging.ILogMessage.Text
+- uid: Nuclei.Diagnostics.Logging.ILogTemplate
+  name: ILogTemplate
+  href: api/Nuclei.Diagnostics.Logging.ILogTemplate.html#Nuclei_Diagnostics_Logging_ILogTemplate
+  commentId: T:Nuclei.Diagnostics.Logging.ILogTemplate
+  fullName: Nuclei.Diagnostics.Logging.ILogTemplate
+- uid: Nuclei.Diagnostics.Logging.ILogTemplate.DefaultLogLevel
+  name: DefaultLogLevel()
+  href: api/Nuclei.Diagnostics.Logging.ILogTemplate.html#Nuclei_Diagnostics_Logging_ILogTemplate_DefaultLogLevel
+  commentId: M:Nuclei.Diagnostics.Logging.ILogTemplate.DefaultLogLevel
+  fullName: Nuclei.Diagnostics.Logging.ILogTemplate.DefaultLogLevel()
+- uid: Nuclei.Diagnostics.Logging.ILogTemplate.Name
+  name: Name
+  href: api/Nuclei.Diagnostics.Logging.ILogTemplate.html#Nuclei_Diagnostics_Logging_ILogTemplate_Name
+  commentId: P:Nuclei.Diagnostics.Logging.ILogTemplate.Name
+  fullName: Nuclei.Diagnostics.Logging.ILogTemplate.Name
+- uid: Nuclei.Diagnostics.Logging.ILogTemplate.Translate(Nuclei.Diagnostics.Logging.LogMessage)
+  name: Translate(LogMessage)
+  href: api/Nuclei.Diagnostics.Logging.ILogTemplate.html#Nuclei_Diagnostics_Logging_ILogTemplate_Translate_Nuclei_Diagnostics_Logging_LogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.ILogTemplate.Translate(Nuclei.Diagnostics.Logging.LogMessage)
+  fullName: Nuclei.Diagnostics.Logging.ILogTemplate.Translate(Nuclei.Diagnostics.Logging.LogMessage)
+- uid: Nuclei.Diagnostics.Logging.LevelToLog
+  name: LevelToLog
+  href: api/Nuclei.Diagnostics.Logging.LevelToLog.html#Nuclei_Diagnostics_Logging_LevelToLog
+  commentId: T:Nuclei.Diagnostics.Logging.LevelToLog
+  fullName: Nuclei.Diagnostics.Logging.LevelToLog
+- uid: Nuclei.Diagnostics.Logging.LevelToLog.Debug
+  name: Debug
+  href: api/Nuclei.Diagnostics.Logging.LevelToLog.html#Nuclei_Diagnostics_Logging_LevelToLog_Debug
+  commentId: F:Nuclei.Diagnostics.Logging.LevelToLog.Debug
+  fullName: Nuclei.Diagnostics.Logging.LevelToLog.Debug
+- uid: Nuclei.Diagnostics.Logging.LevelToLog.Error
+  name: Error
+  href: api/Nuclei.Diagnostics.Logging.LevelToLog.html#Nuclei_Diagnostics_Logging_LevelToLog_Error
+  commentId: F:Nuclei.Diagnostics.Logging.LevelToLog.Error
+  fullName: Nuclei.Diagnostics.Logging.LevelToLog.Error
+- uid: Nuclei.Diagnostics.Logging.LevelToLog.Fatal
+  name: Fatal
+  href: api/Nuclei.Diagnostics.Logging.LevelToLog.html#Nuclei_Diagnostics_Logging_LevelToLog_Fatal
+  commentId: F:Nuclei.Diagnostics.Logging.LevelToLog.Fatal
+  fullName: Nuclei.Diagnostics.Logging.LevelToLog.Fatal
+- uid: Nuclei.Diagnostics.Logging.LevelToLog.Info
+  name: Info
+  href: api/Nuclei.Diagnostics.Logging.LevelToLog.html#Nuclei_Diagnostics_Logging_LevelToLog_Info
+  commentId: F:Nuclei.Diagnostics.Logging.LevelToLog.Info
+  fullName: Nuclei.Diagnostics.Logging.LevelToLog.Info
+- uid: Nuclei.Diagnostics.Logging.LevelToLog.None
+  name: None
+  href: api/Nuclei.Diagnostics.Logging.LevelToLog.html#Nuclei_Diagnostics_Logging_LevelToLog_None
+  commentId: F:Nuclei.Diagnostics.Logging.LevelToLog.None
+  fullName: Nuclei.Diagnostics.Logging.LevelToLog.None
+- uid: Nuclei.Diagnostics.Logging.LevelToLog.Trace
+  name: Trace
+  href: api/Nuclei.Diagnostics.Logging.LevelToLog.html#Nuclei_Diagnostics_Logging_LevelToLog_Trace
+  commentId: F:Nuclei.Diagnostics.Logging.LevelToLog.Trace
+  fullName: Nuclei.Diagnostics.Logging.LevelToLog.Trace
+- uid: Nuclei.Diagnostics.Logging.LevelToLog.Warn
+  name: Warn
+  href: api/Nuclei.Diagnostics.Logging.LevelToLog.html#Nuclei_Diagnostics_Logging_LevelToLog_Warn
+  commentId: F:Nuclei.Diagnostics.Logging.LevelToLog.Warn
+  fullName: Nuclei.Diagnostics.Logging.LevelToLog.Warn
+- uid: Nuclei.Diagnostics.Logging.LoggingException
+  name: LoggingException
+  href: api/Nuclei.Diagnostics.Logging.LoggingException.html#Nuclei_Diagnostics_Logging_LoggingException
+  commentId: T:Nuclei.Diagnostics.Logging.LoggingException
+  fullName: Nuclei.Diagnostics.Logging.LoggingException
+- uid: Nuclei.Diagnostics.Logging.LoggingException.#ctor
+  name: LoggingException()
+  href: api/Nuclei.Diagnostics.Logging.LoggingException.html#Nuclei_Diagnostics_Logging_LoggingException__ctor
+  commentId: M:Nuclei.Diagnostics.Logging.LoggingException.#ctor
+  fullName: Nuclei.Diagnostics.Logging.LoggingException.LoggingException()
+- uid: Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.Collections.Generic.IEnumerable{System.Exception})
+  name: LoggingException(IEnumerable<Exception>)
+  href: api/Nuclei.Diagnostics.Logging.LoggingException.html#Nuclei_Diagnostics_Logging_LoggingException__ctor_System_Collections_Generic_IEnumerable_System_Exception__
+  commentId: M:Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.Collections.Generic.IEnumerable{System.Exception})
+  name.vb: LoggingException(IEnumerable(Of Exception))
+  fullName: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.Collections.Generic.IEnumerable<System.Exception>)
+  fullName.vb: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.Collections.Generic.IEnumerable(Of System.Exception))
+- uid: Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.Exception[])
+  name: LoggingException(Exception[])
+  href: api/Nuclei.Diagnostics.Logging.LoggingException.html#Nuclei_Diagnostics_Logging_LoggingException__ctor_System_Exception___
+  commentId: M:Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.Exception[])
+  name.vb: LoggingException(Exception())
+  fullName: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.Exception[])
+  fullName.vb: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.Exception())
+- uid: Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.String)
+  name: LoggingException(String)
+  href: api/Nuclei.Diagnostics.Logging.LoggingException.html#Nuclei_Diagnostics_Logging_LoggingException__ctor_System_String_
+  commentId: M:Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.String)
+  fullName: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.String)
+- uid: Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.Exception})
+  name: LoggingException(String, IEnumerable<Exception>)
+  href: api/Nuclei.Diagnostics.Logging.LoggingException.html#Nuclei_Diagnostics_Logging_LoggingException__ctor_System_String_System_Collections_Generic_IEnumerable_System_Exception__
+  commentId: M:Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.String,System.Collections.Generic.IEnumerable{System.Exception})
+  name.vb: LoggingException(String, IEnumerable(Of Exception))
+  fullName: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.String, System.Collections.Generic.IEnumerable<System.Exception>)
+  fullName.vb: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.String, System.Collections.Generic.IEnumerable(Of System.Exception))
+- uid: Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.String,System.Exception)
+  name: LoggingException(String, Exception)
+  href: api/Nuclei.Diagnostics.Logging.LoggingException.html#Nuclei_Diagnostics_Logging_LoggingException__ctor_System_String_System_Exception_
+  commentId: M:Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.String,System.Exception)
+  fullName: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.String, System.Exception)
+- uid: Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.String,System.Exception[])
+  name: LoggingException(String, Exception[])
+  href: api/Nuclei.Diagnostics.Logging.LoggingException.html#Nuclei_Diagnostics_Logging_LoggingException__ctor_System_String_System_Exception___
+  commentId: M:Nuclei.Diagnostics.Logging.LoggingException.#ctor(System.String,System.Exception[])
+  name.vb: LoggingException(String, Exception())
+  fullName: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.String, System.Exception[])
+  fullName.vb: Nuclei.Diagnostics.Logging.LoggingException.LoggingException(System.String, System.Exception())
+- uid: Nuclei.Diagnostics.Logging.LogMessage
+  name: LogMessage
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage
+  commentId: T:Nuclei.Diagnostics.Logging.LogMessage
+  fullName: Nuclei.Diagnostics.Logging.LogMessage
+- uid: Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.Collections.Generic.IDictionary{System.String,System.Object},System.IFormatProvider,System.String,System.Object[])
+  name: LogMessage(LevelToLog, IDictionary<String, Object>, IFormatProvider, String, Object[])
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage__ctor_Nuclei_Diagnostics_Logging_LevelToLog_System_Collections_Generic_IDictionary_System_String_System_Object__System_IFormatProvider_System_String_System_Object___
+  commentId: M:Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.Collections.Generic.IDictionary{System.String,System.Object},System.IFormatProvider,System.String,System.Object[])
+  name.vb: LogMessage(LevelToLog, IDictionary(Of String, Object), IFormatProvider, String, Object())
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.Collections.Generic.IDictionary<System.String, System.Object>, System.IFormatProvider, System.String, System.Object[])
+  fullName.vb: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.Collections.Generic.IDictionary(Of System.String, System.Object), System.IFormatProvider, System.String, System.Object())
+- uid: Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.Collections.Generic.IDictionary{System.String,System.Object},System.String)
+  name: LogMessage(LevelToLog, IDictionary<String, Object>, String)
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage__ctor_Nuclei_Diagnostics_Logging_LevelToLog_System_Collections_Generic_IDictionary_System_String_System_Object__System_String_
+  commentId: M:Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.Collections.Generic.IDictionary{System.String,System.Object},System.String)
+  name.vb: LogMessage(LevelToLog, IDictionary(Of String, Object), String)
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.Collections.Generic.IDictionary<System.String, System.Object>, System.String)
+  fullName.vb: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.Collections.Generic.IDictionary(Of System.String, System.Object), System.String)
+- uid: Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.Collections.Generic.IDictionary{System.String,System.Object},System.String,System.Object[])
+  name: LogMessage(LevelToLog, IDictionary<String, Object>, String, Object[])
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage__ctor_Nuclei_Diagnostics_Logging_LevelToLog_System_Collections_Generic_IDictionary_System_String_System_Object__System_String_System_Object___
+  commentId: M:Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.Collections.Generic.IDictionary{System.String,System.Object},System.String,System.Object[])
+  name.vb: LogMessage(LevelToLog, IDictionary(Of String, Object), String, Object())
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.Collections.Generic.IDictionary<System.String, System.Object>, System.String, System.Object[])
+  fullName.vb: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.Collections.Generic.IDictionary(Of System.String, System.Object), System.String, System.Object())
+- uid: Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.IFormatProvider,System.String,System.Object[])
+  name: LogMessage(LevelToLog, IFormatProvider, String, Object[])
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage__ctor_Nuclei_Diagnostics_Logging_LevelToLog_System_IFormatProvider_System_String_System_Object___
+  commentId: M:Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.IFormatProvider,System.String,System.Object[])
+  name.vb: LogMessage(LevelToLog, IFormatProvider, String, Object())
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.IFormatProvider, System.String, System.Object[])
+  fullName.vb: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.IFormatProvider, System.String, System.Object())
+- uid: Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.String)
+  name: LogMessage(LevelToLog, String)
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage__ctor_Nuclei_Diagnostics_Logging_LevelToLog_System_String_
+  commentId: M:Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.String)
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.String)
+- uid: Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.String,System.Object[])
+  name: LogMessage(LevelToLog, String, Object[])
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage__ctor_Nuclei_Diagnostics_Logging_LevelToLog_System_String_System_Object___
+  commentId: M:Nuclei.Diagnostics.Logging.LogMessage.#ctor(Nuclei.Diagnostics.Logging.LevelToLog,System.String,System.Object[])
+  name.vb: LogMessage(LevelToLog, String, Object())
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.String, System.Object[])
+  fullName.vb: Nuclei.Diagnostics.Logging.LogMessage.LogMessage(Nuclei.Diagnostics.Logging.LevelToLog, System.String, System.Object())
+- uid: Nuclei.Diagnostics.Logging.LogMessage.FormatParameters
+  name: FormatParameters
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage_FormatParameters
+  commentId: P:Nuclei.Diagnostics.Logging.LogMessage.FormatParameters
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.FormatParameters
+- uid: Nuclei.Diagnostics.Logging.LogMessage.FormatProvider
+  name: FormatProvider
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage_FormatProvider
+  commentId: P:Nuclei.Diagnostics.Logging.LogMessage.FormatProvider
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.FormatProvider
+- uid: Nuclei.Diagnostics.Logging.LogMessage.HasAdditionalInformation
+  name: HasAdditionalInformation
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage_HasAdditionalInformation
+  commentId: P:Nuclei.Diagnostics.Logging.LogMessage.HasAdditionalInformation
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.HasAdditionalInformation
+- uid: Nuclei.Diagnostics.Logging.LogMessage.Level
+  name: Level
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage_Level
+  commentId: P:Nuclei.Diagnostics.Logging.LogMessage.Level
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.Level
+- uid: Nuclei.Diagnostics.Logging.LogMessage.Properties
+  name: Properties
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage_Properties
+  commentId: P:Nuclei.Diagnostics.Logging.LogMessage.Properties
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.Properties
+- uid: Nuclei.Diagnostics.Logging.LogMessage.Text
+  name: Text
+  href: api/Nuclei.Diagnostics.Logging.LogMessage.html#Nuclei_Diagnostics_Logging_LogMessage_Text
+  commentId: P:Nuclei.Diagnostics.Logging.LogMessage.Text
+  fullName: Nuclei.Diagnostics.Logging.LogMessage.Text
+- uid: Nuclei.Diagnostics.Logging.MultiOutputLogger
+  name: MultiOutputLogger
+  href: api/Nuclei.Diagnostics.Logging.MultiOutputLogger.html#Nuclei_Diagnostics_Logging_MultiOutputLogger
+  commentId: T:Nuclei.Diagnostics.Logging.MultiOutputLogger
+  fullName: Nuclei.Diagnostics.Logging.MultiOutputLogger
+- uid: Nuclei.Diagnostics.Logging.MultiOutputLogger.#ctor(System.Collections.Generic.IEnumerable{Nuclei.Diagnostics.Logging.ILogger})
+  name: MultiOutputLogger(IEnumerable<ILogger>)
+  href: api/Nuclei.Diagnostics.Logging.MultiOutputLogger.html#Nuclei_Diagnostics_Logging_MultiOutputLogger__ctor_System_Collections_Generic_IEnumerable_Nuclei_Diagnostics_Logging_ILogger__
+  commentId: M:Nuclei.Diagnostics.Logging.MultiOutputLogger.#ctor(System.Collections.Generic.IEnumerable{Nuclei.Diagnostics.Logging.ILogger})
+  name.vb: MultiOutputLogger(IEnumerable(Of ILogger))
+  fullName: Nuclei.Diagnostics.Logging.MultiOutputLogger.MultiOutputLogger(System.Collections.Generic.IEnumerable<Nuclei.Diagnostics.Logging.ILogger>)
+  fullName.vb: Nuclei.Diagnostics.Logging.MultiOutputLogger.MultiOutputLogger(System.Collections.Generic.IEnumerable(Of Nuclei.Diagnostics.Logging.ILogger))
+- uid: Nuclei.Diagnostics.Logging.MultiOutputLogger.Close
+  name: Close()
+  href: api/Nuclei.Diagnostics.Logging.MultiOutputLogger.html#Nuclei_Diagnostics_Logging_MultiOutputLogger_Close
+  commentId: M:Nuclei.Diagnostics.Logging.MultiOutputLogger.Close
+  fullName: Nuclei.Diagnostics.Logging.MultiOutputLogger.Close()
+- uid: Nuclei.Diagnostics.Logging.MultiOutputLogger.Dispose
+  name: Dispose()
+  href: api/Nuclei.Diagnostics.Logging.MultiOutputLogger.html#Nuclei_Diagnostics_Logging_MultiOutputLogger_Dispose
+  commentId: M:Nuclei.Diagnostics.Logging.MultiOutputLogger.Dispose
+  fullName: Nuclei.Diagnostics.Logging.MultiOutputLogger.Dispose()
+- uid: Nuclei.Diagnostics.Logging.MultiOutputLogger.Level
+  name: Level
+  href: api/Nuclei.Diagnostics.Logging.MultiOutputLogger.html#Nuclei_Diagnostics_Logging_MultiOutputLogger_Level
+  commentId: P:Nuclei.Diagnostics.Logging.MultiOutputLogger.Level
+  fullName: Nuclei.Diagnostics.Logging.MultiOutputLogger.Level
+- uid: Nuclei.Diagnostics.Logging.MultiOutputLogger.Log(Nuclei.Diagnostics.Logging.ILogMessage)
+  name: Log(ILogMessage)
+  href: api/Nuclei.Diagnostics.Logging.MultiOutputLogger.html#Nuclei_Diagnostics_Logging_MultiOutputLogger_Log_Nuclei_Diagnostics_Logging_ILogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.MultiOutputLogger.Log(Nuclei.Diagnostics.Logging.ILogMessage)
+  fullName: Nuclei.Diagnostics.Logging.MultiOutputLogger.Log(Nuclei.Diagnostics.Logging.ILogMessage)
+- uid: Nuclei.Diagnostics.Logging.MultiOutputLogger.ShouldLog(Nuclei.Diagnostics.Logging.ILogMessage)
+  name: ShouldLog(ILogMessage)
+  href: api/Nuclei.Diagnostics.Logging.MultiOutputLogger.html#Nuclei_Diagnostics_Logging_MultiOutputLogger_ShouldLog_Nuclei_Diagnostics_Logging_ILogMessage_
+  commentId: M:Nuclei.Diagnostics.Logging.MultiOutputLogger.ShouldLog(Nuclei.Diagnostics.Logging.ILogMessage)
+  fullName: Nuclei.Diagnostics.Logging.MultiOutputLogger.ShouldLog(Nuclei.Diagnostics.Logging.ILogMessage)
+- uid: Nuclei.Diagnostics.Metrics
+  name: Nuclei.Diagnostics.Metrics
+  href: api/Nuclei.Diagnostics.Metrics.html#Nuclei_Diagnostics_Metrics
+  commentId: N:Nuclei.Diagnostics.Metrics
+  fullName: Nuclei.Diagnostics.Metrics
+- uid: Nuclei.Diagnostics.Metrics.IMetricsCollector
+  name: IMetricsCollector
+  href: api/Nuclei.Diagnostics.Metrics.IMetricsCollector.html#Nuclei_Diagnostics_Metrics_IMetricsCollector
+  commentId: T:Nuclei.Diagnostics.Metrics.IMetricsCollector
+  fullName: Nuclei.Diagnostics.Metrics.IMetricsCollector
+- uid: Nuclei.Diagnostics.SystemDiagnostics
+  name: SystemDiagnostics
+  href: api/Nuclei.Diagnostics.SystemDiagnostics.html#Nuclei_Diagnostics_SystemDiagnostics
+  commentId: T:Nuclei.Diagnostics.SystemDiagnostics
+  fullName: Nuclei.Diagnostics.SystemDiagnostics
+- uid: Nuclei.Diagnostics.SystemDiagnostics.#ctor(Nuclei.Diagnostics.Logging.ILogger,Nuclei.Diagnostics.Metrics.IMetricsCollector)
+  name: SystemDiagnostics(ILogger, IMetricsCollector)
+  href: api/Nuclei.Diagnostics.SystemDiagnostics.html#Nuclei_Diagnostics_SystemDiagnostics__ctor_Nuclei_Diagnostics_Logging_ILogger_Nuclei_Diagnostics_Metrics_IMetricsCollector_
+  commentId: M:Nuclei.Diagnostics.SystemDiagnostics.#ctor(Nuclei.Diagnostics.Logging.ILogger,Nuclei.Diagnostics.Metrics.IMetricsCollector)
+  fullName: Nuclei.Diagnostics.SystemDiagnostics.SystemDiagnostics(Nuclei.Diagnostics.Logging.ILogger, Nuclei.Diagnostics.Metrics.IMetricsCollector)
+- uid: Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog,System.IFormatProvider,System.String,System.Object[])
+  name: Log(LevelToLog, IFormatProvider, String, Object[])
+  href: api/Nuclei.Diagnostics.SystemDiagnostics.html#Nuclei_Diagnostics_SystemDiagnostics_Log_Nuclei_Diagnostics_Logging_LevelToLog_System_IFormatProvider_System_String_System_Object___
+  commentId: M:Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog,System.IFormatProvider,System.String,System.Object[])
+  name.vb: Log(LevelToLog, IFormatProvider, String, Object())
+  fullName: Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog, System.IFormatProvider, System.String, System.Object[])
+  fullName.vb: Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog, System.IFormatProvider, System.String, System.Object())
+- uid: Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog,System.String)
+  name: Log(LevelToLog, String)
+  href: api/Nuclei.Diagnostics.SystemDiagnostics.html#Nuclei_Diagnostics_SystemDiagnostics_Log_Nuclei_Diagnostics_Logging_LevelToLog_System_String_
+  commentId: M:Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog,System.String)
+  fullName: Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog, System.String)
+- uid: Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog,System.String,System.Object[])
+  name: Log(LevelToLog, String, Object[])
+  href: api/Nuclei.Diagnostics.SystemDiagnostics.html#Nuclei_Diagnostics_SystemDiagnostics_Log_Nuclei_Diagnostics_Logging_LevelToLog_System_String_System_Object___
+  commentId: M:Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog,System.String,System.Object[])
+  name.vb: Log(LevelToLog, String, Object())
+  fullName: Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog, System.String, System.Object[])
+  fullName.vb: Nuclei.Diagnostics.SystemDiagnostics.Log(Nuclei.Diagnostics.Logging.LevelToLog, System.String, System.Object())
+- uid: Nuclei.Diagnostics.SystemDiagnostics.Metrics
+  name: Metrics
+  href: api/Nuclei.Diagnostics.SystemDiagnostics.html#Nuclei_Diagnostics_SystemDiagnostics_Metrics
+  commentId: P:Nuclei.Diagnostics.SystemDiagnostics.Metrics
+  fullName: Nuclei.Diagnostics.SystemDiagnostics.Metrics
