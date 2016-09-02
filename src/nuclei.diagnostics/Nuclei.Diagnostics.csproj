@@ -77,7 +77,9 @@
   <ItemGroup>
     <Compile Include="DiagnosticsConfigurationKeys.cs" />
     <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\ILogMessagesFromRemoteAppDomains.cs" />
     <Compile Include="Logging\LevelToLog.cs" />
+    <Compile Include="Logging\LogForwardingPipe.cs" />
     <Compile Include="Logging\LoggingException.cs" />
     <Compile Include="Logging\LogMessage.cs" />
     <Compile Include="Logging\DistributedLogger.cs" />
