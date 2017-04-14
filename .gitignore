@@ -166,3 +166,4 @@ AssemblyInfo.Company.cs
 src/.vs/
 _site/
 doc/Nuclei.Diagnostics.Documentation/docfx.json
+packages.xml
