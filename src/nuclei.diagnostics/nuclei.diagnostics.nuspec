@@ -3,10 +3,10 @@
   <metadata>
     <id>Nuclei.Diagnostics</id>
     <version>$VersionSemantic$</version>
-    <authors>Metamorpher</authors>
-    <owners>Metamorpher</owners>
+    <authors>Petrik van der Velde</authors>
+    <owners>Petrik van der Velde</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectUrl>https://github.com/Metamorpher/Nuclei.Diagnostics</projectUrl>
+    <projectUrl>https://github.com/thenucleus/Nuclei.Diagnostics</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>
       Provides diagnostics methods and classes used to log issues and performance of
